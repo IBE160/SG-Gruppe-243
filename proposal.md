@@ -39,6 +39,60 @@ The application aims to help students generate customized job applications using
 - Internet access required for AI-based generation.  
 - Must comply with GDPR and privacy best practices.
 
+## Platform and Architecture
+- **Platform:** Web Application
+- **Frontend:** React with TypeScript and Tailwind CSS, for a highly customizable and responsive user interface.
+- **Backend:** Node.js with Express.js and TypeScript, providing a RESTful API for handling user authentication, document processing, and communication with the AI service.
+- **Database:** MongoDB, a NoSQL database, for flexible storage of user profiles, CVs, and generated application materials.
+- **AI Integration:** The backend will integrate with a powerful Large Language Model (LLM) via its API to provide the core functionality of application generation and CV analysis.
+
+## Database Schema
+The project will use MongoDB. The schema will be organized into three main collections:
+
+**1. `users` Collection**
+Stores essential user information for authentication and identification.
+```json
+{
+  "_id": "ObjectId",
+  "name": "String",
+  "email": "String (unique)",
+  "password": "String (hashed)",
+  "createdAt": "Date",
+  "updatedAt": "Date"
+}
+```
+
+**2. `cvs` Collection**
+Stores the CVs uploaded by a user. A user can have many CVs.
+```json
+{
+  "_id": "ObjectId",
+  "userId": "ObjectId (references a user)",
+  "originalFilename": "String",
+  "storagePath": "String (path to the stored file, e.g., on S3)",
+  "extractedText": "String (the parsed text from the CV)",
+  "createdAt": "Date"
+}
+```
+
+**3. `generatedApplications` Collection**
+Stores the results of each analysis, linking a user, a CV, and a job description.
+```json
+{
+  "_id": "ObjectId",
+  "userId": "ObjectId (references a user)",
+  "cvId": "ObjectId (references a cv)",
+  "jobDescription": "String",
+  "generatedLetter": "String (the tailored cover letter)",
+  "analysisResults": {
+    "qualificationGaps": ["String"],
+    "cvImprovementSuggestions": ["String"],
+    "atsKeywordsFound": ["String"]
+  },
+  "createdAt": "Date"
+}
+```
+
 ## Success Criteria
 - Users can generate tailored applications in less than 5 minutes.  
 - Stored data is securely encrypted and accessible only by authorized users.  
