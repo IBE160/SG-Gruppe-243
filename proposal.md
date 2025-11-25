@@ -46,6 +46,24 @@ The application aims to help students generate customized job applications using
 - **Database:** MongoDB, a NoSQL database, for flexible storage of user profiles, CVs, and generated application materials.
 - **AI Integration:** The backend will integrate with a powerful Large Language Model (LLM) via its API to provide the core functionality of application generation and CV analysis.
 
+## Testing Strategy
+To ensure a high-quality and reliable application, the following testing strategies will be implemented:
+- **Frontend (Unit and Component Testing):** **Jest** and **React Testing Library** will be used to write unit and component tests for all React components, ensuring they behave as expected in isolation.
+- **Backend (Unit and Integration Testing):** **Jest** and **Supertest** will be used to test the backend API. Unit tests will cover individual functions and modules, while integration tests will validate the API endpoints and their interaction with the database.
+- **End-to-End (E2E) Testing:** **Cypress** or **Playwright** will be used for E2E testing, simulating real user scenarios to ensure the entire application flow works correctly.
+
+## Security
+Security is a top priority. The following measures will be implemented to protect user data:
+- **Authentication:** **JSON Web Tokens (JWT)** will be used for stateless authentication, ensuring that only authenticated users can access their data.
+- **Password Hashing:** User passwords will be securely hashed using a strong algorithm like **bcrypt** before being stored in the database.
+- **Secret Management:** All sensitive information, such as API keys and database credentials, will be stored as environment variables and will not be hard-coded in the application.
+- **Input Validation:** All user input will be validated on both the frontend and backend to prevent common vulnerabilities like Cross-Site Scripting (XSS) and SQL injection.
+
+## CV Parsing
+The application will need to parse CVs in various formats (PDF, DOCX, TXT). The following approach will be used:
+- **Libraries:** We will use libraries like **`pdf-parse`** for parsing PDF files and **`mammoth`** for converting DOCX files to HTML, which can then be parsed for text.
+- **Complexity:** We acknowledge that parsing documents with complex layouts can be challenging. For the MVP, we will focus on parsing standard, single-column CV formats. More advanced parsing capabilities can be explored as an extension.
+
 ## Database Schema
 The project will use MongoDB. The schema will be organized into three main collections:
 
