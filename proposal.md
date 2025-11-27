@@ -39,6 +39,43 @@ The application aims to help students generate customized job applications using
 1. As a student, I want to upload my CV and a job posting so that I can get a customized application letter.
 2. As a student, I want to see what qualifications I’m missing so I can plan skill development.
 
+## User Flows
+
+**Flow 1:** Student entering the website for the first time.
+**Entry Point:** Student lands on homepage
+
+**1. Landing Page**
+
+- Student views hero section explaining the concept of this web application
+- Clicks on sign up button
+
+**2. Authentication and user creation**
+
+- Fills out form with e-mail address, first and last name and phone number
+- The user will get a verification e-mail with a code that is going to be submitted to verify the user
+
+**3. Finishing the user creation**
+
+- After sucessful user verification the user gets the option to upload their CV
+
+**Flow 2:** Student who already has a user enters the website
+**Entry Point:** Student lands on homepage
+
+**1. Landing Page**
+
+- User clicks on the log in button
+
+**2. Authentication**
+
+- User gets the option to fill out login form
+
+**3. Authenticated and user uses the web tool**
+
+- Uses the tool that compares the CV and a job advertisement
+  - The tool has a text box where the user pastes the job advertisement
+- User gets the results of compatibility tool, where the tool shows the qualification gap analysis and CV improvement suggestions
+- The user then gets the choice to get a Personalized application generated
+
 ## Technical Constraints
 
 - Must support secure login and encrypted data storage.
