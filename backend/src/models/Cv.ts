@@ -1,0 +1,1 @@
+// Placeholder schema – implemented later
