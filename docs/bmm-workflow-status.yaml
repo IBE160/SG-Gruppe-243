@@ -15,11 +15,33 @@
 #   - {file-path}: File created/found (e.g., "docs/product-brief.md")
 #   - skipped: Optional/conditional workflow that was skipped
 
-generated: "{{generated}}"
+generated: "2025-12-01"
 project: "ibe160"
 project_type: "AI CV & Job Application Assistant"
 user_description: "The application aims to help students generate customized job applications using their existing CVs,previous applications, key words, and target job descriptions. It improves application quality by suggesting edits to both the CV and the application letter, identifying missing qualifications, and optimizing for Applicant Tracking Systems (ATS)."
 selected_track: "enterprise"
 field_type: "greenfield"
-workflow_path: "{{workflow_path_file}}"
-workflow_status: "{{workflow_items}}"
+brainstorm_requested: true
+research_requested: false
+product_brief_requested: false
+workflow_path: "enterprise-greenfield.yaml"
+workflow_status:
+  # Phase 0: Discovery (Required)
+  brainstorm-project: pending
+  research: skipped
+  product-brief: skipped
+
+  # Phase 1: Planning
+  prd: required
+  validate-prd: recommended
+  create-design: recommended
+
+  # Phase 2: Solutioning
+  create-architecture: required
+  test-design: required
+  validate-architecture: recommended
+  create-epics-and-stories: required
+  implementation-readiness: required
+
+  # Phase 3: Implementation
+  sprint-planning: required
