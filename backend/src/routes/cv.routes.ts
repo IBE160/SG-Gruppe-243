@@ -1,9 +1,10 @@
-import { Router } from 'express';
-import { uploadCV } from '../controllers/cv.controller';
+import { Router } from "express";
+import { upload } from "../middleware/upload.middleware";
+import { authMiddleware } from "../middleware/auth.middleware";
+import { uploadCV } from "../controllers/cv.controller";
 
 const router = Router();
 
-router.get('/', (req, res) => res.send('CV routes OK'));
-router.post('/upload', uploadCV);
+router.post("/upload", authMiddleware, upload.single("cv"), uploadCV);
 
 export default router;
