@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axiosClient from "../api/axiosClient";
+import api from "../services/axiosClient";
 import { useNavigate } from "react-router-dom";
 
 export default function Analyze() {
@@ -8,7 +8,7 @@ export default function Analyze() {
   const navigate = useNavigate();
 
   const analyze = async () => {
-    const { data } = await axiosClient.post("/analysis", { cvId, jobDescription });
+    const { data } = await api.post("/analysis", { cvId, jobDescription });
     localStorage.setItem("analysis", JSON.stringify(data));
     navigate("/results");
   };
