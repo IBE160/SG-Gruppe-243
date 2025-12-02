@@ -16,7 +16,7 @@ export default function Navbar() {
         )}
         {token && (
           <>
-            <Link to="/upload">Upload CV</Link>
+            <Link to="/dashboard">Dashboard</Link>
             <button onClick={logout}>Logout</button>
           </>
         )}
