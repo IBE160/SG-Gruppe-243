@@ -10,6 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+console.log("DEBUG - MONGO_URI at runtime:", process.env.MONGO_URI);
 connectDB();
 
 app.use("/auth", authRoutes);
