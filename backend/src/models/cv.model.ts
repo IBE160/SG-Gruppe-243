@@ -1,7 +1,7 @@
-import { Schema, model, Document } from "mongoose";
+import { Schema, model, Document, Types } from "mongoose";
 
 export interface ICV extends Document {
-  userId: string;
+  userId: Types.ObjectId;
   originalFilename: string;
   storagePath: string;
   extractedText: string;

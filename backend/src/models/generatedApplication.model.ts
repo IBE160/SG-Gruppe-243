@@ -1,8 +1,8 @@
-import { Schema, model, Document } from "mongoose";
+import { Schema, model, Document, Types } from "mongoose";
 
 export interface IGeneratedApplication extends Document {
-  userId: string;
-  cvId: string;
+  userId: Types.ObjectId;
+  cvId: Types.ObjectId;
   jobDescription: string;
   generatedLetter: string;
   analysisResults: {
@@ -19,12 +19,15 @@ const generatedApplicationSchema = new Schema<IGeneratedApplication>(
     jobDescription: { type: String, required: true },
     generatedLetter: { type: String, required: true },
     analysisResults: {
-      qualificationGaps: [String],
-      cvImprovementSuggestions: [String],
-      atsKeywordsFound: [String]
+      qualificationGaps: { type: [String], default: [] },
+      cvImprovementSuggestions: { type: [String], default: [] },
+      atsKeywordsFound: { type: [String], default: [] }
     }
   },
   { timestamps: true }
 );
 
-export default model<IGeneratedApplication>("GeneratedApplication", generatedApplicationSchema);
+export default model<IGeneratedApplication>(
+  "GeneratedApplication",
+  generatedApplicationSchema
+);

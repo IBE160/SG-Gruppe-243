@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import pdfParse from "pdf-parse";
+const pdfParse = require("pdf-parse");
 import mammoth from "mammoth";
 import fs from "fs";
 import CV from "../models/cv.model";
@@ -12,17 +12,24 @@ export const uploadCV = async (req: Request, res: Response) => {
 
   let extractedText = "";
 
+  // PDF
   if (file.mimetype === "application/pdf") {
     const data = fs.readFileSync(file.path);
-    const pdf = await pdfParse(data);
-    extractedText = pdf.text;
-  } else if (
+    const pdfData = await pdfParse(data);
+    extractedText = pdfData.text;
+  }
+
+  // DOCX
+  else if (
     file.mimetype ===
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
   ) {
-    const result = await mammoth.extractRawText({ path: file.path });
-    extractedText = result.value;
-  } else {
+    const docx = await mammoth.extractRawText({ path: file.path });
+    extractedText = docx.value;
+  }
+
+  // TXT or other plain text
+  else {
     extractedText = fs.readFileSync(file.path, "utf8");
   }
 
