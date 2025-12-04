@@ -29,42 +29,61 @@ In today's competitive job market, a generic application is often overlooked. St
 ## 5. Scope
 
 ### In-Scope (Minimum Viable Product - MVP)
-- **User Authentication:** Secure user sign-up, login, and profile management.
-- **Document Upload:** Users can upload their CV in PDF, DOCX, or TXT format.
-- **AI Analysis:** The system will take a user's CV and a pasted job description as input.
-- **Personalized Application Generation:** Automatically create a tailored application letter.
-- **CV Improvement Suggestions:** Provide specific feedback on wording, structure, and keyword alignment.
-- **Qualification Gap Analysis:** Identify and list skills or qualifications from the job description that are missing from the CV.
+- **Personalized application generation:** Automatically creates a tailored application letter based on a user’s CV and a specific job posting.
+- **CV improvement suggestions:** Highlights areas for improvement such as wording, structure, tone/styel and keyword alignment.
+- **Qualification gap analysis:** Identifies missing or weak skills compared to job requirements.
 
 ### Out-of-Scope (Potential Future Extensions)
+- **ATS optimization module:** Adjusts formatting and content to improve compatibility with automated screening systems (ATS).
+- **Language and tone customization:** Allows users to select writing style, tone, and language level for different industries or regions.
 - Direct integration with job boards (e.g., LinkedIn, Indeed).
-- Advanced ATS optimization module for specific company systems.
-- Multi-language support and advanced tone customization.
 - Sharing features or public profile pages.
 
-## 6. Personas
+## 6. Personas and User Stories
 
+### Personas
 - **Ambitious Amina (University Student):** A final-year computer science student aiming for an internship at a top tech company. She is tech-savvy but time-poor, juggling studies and projects. She needs a tool that is fast, efficient, and gives her a competitive edge.
 - **Exploring Eric (Recent Graduate):** A recent liberal arts graduate exploring various career paths. He is unsure how to best position his skills for different industries (e.g., marketing, non-profit, sales). He needs a tool that helps him understand and articulate his transferable skills for diverse roles.
 
-## 7. Workflow
+### User Stories
+1. As a student, I want to upload my CV and a job posting so that I can get a customized application letter.
+2. As a student, I want to see what qualifications I’m missing so I can plan skill development.
 
-The user's interaction with the core AI functionality will be managed through an agent-based workflow to ensure user control and transparency.
+## 7. User Flows
 
-1.  **Initiation:** The authenticated user uploads their CV and pastes a target job description into the application.
-2.  **Analysis:** The user clicks "Generate Application." The system's backend AI Orchestration Service (the "Agent") analyzes the two documents.
-3.  **Proposal:** The Agent breaks down its findings into a series of proposed actions, which are presented to the user in the UI. Examples of proposals include:
-    *   "Add 'Project Management' to your skills section."
-    *   "Rephrase the bullet point about your retail job to highlight 'customer service' experience."
-    *   "I've identified a qualification gap: The job requires 'Python' which is not on your CV."
-4.  **Approval:** The user reviews these proposals. The UI will feature clear "Accept" or "Reject" buttons for each suggestion, giving the user full control over the final output.
-5.  **Generation:** Once the user has finished reviewing the proposals, they click a "Finalize Application" button.
-6.  **Output:** The Agent generates the final application letter based *only* on the approved suggestions and the initial documents. The user can then edit, copy, or download the final letter.
+**Flow 1:** Student entering the website for the first time.
+**Entry Point:** Student lands on homepage
+
+**1. Landing Page**
+- Student views hero section explaining the concept of this web application
+- Clicks on sign up button
+
+**2. Authentication and user creation**
+- Fills out form with e-mail address, first and last name and phone number
+- The user will get a verification e-mail with a code that is going to be submitted to verify the user
+
+**3. Finishing the user creation**
+- After sucessful user verification the user gets the option to upload their CV
+
+**Flow 2:** Student who already has a user enters the website
+**Entry Point:** Student lands on homepage
+
+**1. Landing Page**
+- User clicks on the log in button
+
+**2. Authentication**
+- User gets the option to fill out login form
+
+**3. Authenticated and user uses the web tool**
+- Uses the tool that compares the CV and a job advertisement
+  - The tool has a text box where the user pastes the job advertisement
+- User gets the results of compatibility tool, where the tool shows the qualification gap analysis and CV improvement suggestions
+- The user then gets the choice to get a Personalized application generated
 
 ## 8. Functional Criteria
 
 - The system MUST allow users to create an account and log in securely.
-- The system MUST allow users to upload CVs in PDF, DOCX, and TXT formats.
+- The system MUST allow users to upload CVs in PDF, DOC, and TXT formats.
 - The system MUST provide a text area for users to paste a job description.
 - The system MUST present AI-generated suggestions to the user in a clear, itemized list.
 - Each suggestion MUST be individually approvable/rejectable by the user.
@@ -79,20 +98,96 @@ The user's interaction with the core AI functionality will be managed through an
 - **Reliability:** The application should have an uptime of 99.9%.
 - **Data Privacy:** The system must be fully compliant with GDPR, including clear user consent for data processing and a mechanism for users to request data deletion.
 
-## 10. Design
+## 10. Design and Architecture
 
-The application will be a web-based platform.
-- **Frontend:** React with TypeScript and Tailwind CSS. The design will be modern, clean, and focused on a simple, step-by-step user experience. The "Proposal/Approval" workflow will be a central component of the UI design.
-- **Backend:** Node.js with Express.js and TypeScript, built as a RESTful API.
-- **Database:** MongoDB for flexible document storage.
+- **Platform:** Web Application
+- **Frontend:** React with TypeScript and Tailwind CSS, for a highly customizable and responsive user interface.
+- **Backend:** Node.js with Express.js and TypeScript, providing a RESTful API for handling user authentication, document processing, and communication with the AI service.
+- **Database:** MongoDB, a NoSQL database, for flexible storage of user profiles, CVs, and generated application materials.
+- **AI Integration:** The backend will integrate with a powerful Large Language Model (LLM) via its API to provide the core functionality of application generation and CV analysis.
 
-## 11. Dependencies
+## 11. Testing Strategy
+
+To ensure a high-quality and reliable application, the following testing strategies will be implemented:
+
+- **Frontend (Unit and Component Testing):** **Jest** and **React Testing Library** will be used to write unit and component tests for all React components, ensuring they behave as expected in isolation.
+- **Backend (Unit and Integration Testing):** **Jest** and **Supertest** will be used to test the backend API. Unit tests will cover individual functions and modules, while integration tests will validate the API endpoints and their interaction with the database.
+- **End-to-End (E2E) Testing:** **Cypress** or **Playwright** will be used for E2E testing, simulating real user scenarios to ensure the entire application flow works correctly.
+
+## 12. Security
+
+Security is a top priority. The following measures will be implemented to protect user data:
+
+- **Authentication:** **JSON Web Tokens (JWT)** will be used for stateless authentication, ensuring that only authenticated users can access their data.
+- **Password Hashing:** User passwords will be securely hashed using a strong algorithm like **bcrypt** before being stored in the database.
+- **Secret Management:** All sensitive information, such as API keys and database credentials, will be stored as environment variables and will not be hard-coded in the application.
+- **Input Validation:** All user input will be validated on both the frontend and backend to prevent common vulnerabilities like Cross-Site Scripting (XSS) and SQL injection.
+
+## 13. CV Parsing
+
+The application will need to parse CVs in various formats (PDF, DOCX, TXT). The following approach will be used:
+
+- **Libraries:** We will use libraries like **`pdf-parse`** for parsing PDF files and **`mammoth`** for converting DOCX files to HTML, which can then be parsed for text.
+- **Complexity:** We acknowledge that parsing documents with complex layouts can be challenging. For the MVP, we will focus on parsing standard, single-column CV formats. More advanced parsing capabilities can be explored as an extension.
+
+## 14. Database Schema
+
+The project will use MongoDB. The schema will be organized into three main collections:
+
+**1. `users` Collection**
+Stores essential user information for authentication and identification.
+
+```json
+{
+  "_id": "ObjectId",
+  "name": "String",
+  "email": "String (unique)",
+  "password": "String (hashed)",
+  "createdAt": "Date",
+  "updatedAt": "Date"
+}
+```
+
+**2. `cvs` Collection**
+Stores the CVs uploaded by a user. A user can have many CVs.
+
+```json
+{
+  "_id": "ObjectId",
+  "userId": "ObjectId (references a user)",
+  "originalFilename": "String",
+  "storagePath": "String (path to the stored file, e.g., on S3)",
+  "extractedText": "String (the parsed text from the CV)",
+  "createdAt": "Date"
+}
+```
+
+**3. `generatedApplications` Collection**
+Stores the results of each analysis, linking a user, a CV, and a job description.
+
+```json
+{
+  "_id": "ObjectId",
+  "userId": "ObjectId (references a user)",
+  "cvId": "ObjectId (references a cv)",
+  "jobDescription": "String",
+  "generatedLetter": "String (the tailored cover letter)",
+  "analysisResults": {
+    "qualificationGaps": ["String"],
+    "cvImprovementSuggestions": ["String"],
+    "atsKeywordsFound": ["String"]
+  },
+  "createdAt": "Date"
+}
+```
+
+## 15. Dependencies
 
 - **External LLM API:** The core functionality is dependent on a third-party Large Language Model API (e.g., from OpenAI, Google, or Anthropic). API availability, cost, and terms of service are external dependencies.
 - **Cloud Hosting Provider:** The application will be hosted on a cloud platform (e.g., AWS, Vercel, Azure).
 - **NPM Packages:** The project relies on various open-source NPM packages for both frontend and backend development.
 
-## 12. Risks
+## 16. Risks
 
 | Risk Description | Probability | Impact | Mitigation Strategy |
 | :--- | :--- | :--- | :--- |
@@ -102,6 +197,6 @@ The application will be a web-based platform.
 | The cost of the LLM API becomes unsustainable. | Medium | High | Implement cost monitoring from day one. Explore different models and pricing tiers. Cache results where possible. |
 | A major platform (e.g., LinkedIn) integrates a similar feature for free. | Low | High | Focus on a superior user experience and higher quality, more trustworthy suggestions. Build a strong brand and community. |
 
-## 13. Timeline
+## 17. Timeline
 
 The detailed project timeline, including sprints and milestones, is to be defined during the project planning phase. This PRD will serve as the primary input for that planning process.
