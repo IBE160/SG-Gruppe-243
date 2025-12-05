@@ -242,7 +242,7 @@ Gjennom dette prosjektet har jeg dypere forstått verdien av strukturerte arbeid
 
 **[Jarle Kjelsvik Wallem]:**
 [Personlig refleksjon over egen læring og utvikling]
-Ikke ha macbook.
+Ikke ha macbook. Ikke stol blindt på Gemini.
 
 **[Rikke Gundersen]:**
 [Personlig refleksjon over egen læring og utvikling]
