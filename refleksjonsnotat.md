@@ -280,4 +280,4 @@ Programmering er nok ikke noe jeg skal spesialisere meg i, da jeg fortsatt synte
 
 ---
 
-**Ordantall:** [ca.3200 ord]
+**Ordantall:** [ca.3100 ord]
