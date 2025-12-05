@@ -251,9 +251,8 @@ Ikke ha macbook.
 
 ## 8. Vedlegg (valgfritt)
 
-- Skjermbilder av applikasjonen (ikke aktuelt i denne fasen)
 - Lenke til GitHub repository: [https://github.com/IBE160/SG-Gruppe-243]
-- Andre relevante dokumenter:
+- Andre relevante dokumenter, se relevant fase+1:
   - Markedsundersøkelsesrapport: `docs/bmm-research-market-2025-12-03.md`
   - Produksjonskravdokument (PRD): `docs/PRD.md`
   - Epics-dokument: `docs/epics.md`
