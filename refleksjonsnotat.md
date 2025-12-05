@@ -6,9 +6,9 @@
 
 **Gruppemedlemmer:**
 
-- Sanosh Senthilkumar - 64579703+SanoshSenthilkumar@users.noreply.github.com
-- Jarle Kjelsvik Wallem - [Student-ID/E-post]
-- Rikke Gundersen - [rikke.gundersen@himolde.no]
+- Sanosh Senthilkumar - sanosh.senthilkumar@himolde.no
+- Jarle Kjelsvik Wallem - jawal2625@himolde.no
+- Rikke Gundersen - rikke.gundersen@himolde.no
 
 **Dato:** 03.12.2025
 
