@@ -1,0 +1,9 @@
+{
+  "name": "sg-gruppe-243",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ]
+}
