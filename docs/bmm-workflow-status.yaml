@@ -1,47 +1,48 @@
-# Workflow Status Template
-
-# This tracks progress through BMM methodology Analysis, Planning, and Solutioning phases.
-# Implementation phase is tracked separately in sprint-status.yaml
-
-# STATUS DEFINITIONS:
-# ==================
-# Initial Status (before completion):
-#   - required: Must be completed to progress
-#   - optional: Can be completed but not required
-#   - recommended: Strongly suggested but not required
-#   - conditional: Required only if certain conditions met (e.g., if_has_ui)
-#
-# Completion Status:
-#   - {file-path}: File created/found (e.g., "docs/product-brief.md")
-#   - skipped: Optional/conditional workflow that was skipped
-
-generated: "2025-12-01"
+generated: "2025-12-10"
 project: "ibe160"
-project_type: "AI CV & Job Application Assistant"
-user_description: "The application aims to help students generate customized job applications using their existing CVs,previous applications, key words, and target job descriptions. It improves application quality by suggesting edits to both the CV and the application letter, identifying missing qualifications, and optimizing for Applicant Tracking Systems (ATS)."
-selected_track: "enterprise"
+project_type: "PLANNING"
+selected_track: "BMad Method"
 field_type: "greenfield"
-brainstorm_requested: true
-research_requested: false
-product_brief_requested: false
-workflow_path: "enterprise-greenfield.yaml"
+workflow_path: "method-greenfield.yaml"
 workflow_status:
-  # Phase 0: Discovery (Required)
-  brainstorm-project: docs/brainstorming-session-results-2025-12-01.md
-  research: docs/bmm-research-market-2025-12-03.md
-  product-brief: skipped
-
-  # Phase 1: Planning
-  prd: docs/prd.md
-  validate-prd: recommended
-  create-design: recommended
-
-  # Phase 2: Solutioning
-  create-architecture: required
-  test-design: required
-  validate-architecture: recommended
-  create-epics-and-stories: required
-  implementation-readiness: required
-
-  # Phase 3: Implementation
-  sprint-planning: required
+  - phase: "Discovery (Optional)"
+    workflows:
+      - id: "brainstorm-project"
+        status: "completed"
+        file_path: "docs/brainstorming-session-results-2025-12-01.md"
+      - id: "research"
+        status: "completed"
+        file_path: "docs/bmm-research-market-2025-12-03.md, docs/research-report-2025-12-01.md"
+      - id: "product-brief"
+        status: "completed"
+        file_path: "docs/product-brief-ibe160-2025-12-10.md"
+  - phase: "Planning"
+    workflows:
+      - id: "prd"
+        status: "completed"
+        file_path: "docs/prd.md"
+      - id: "validate-prd"
+        status: "completed"
+        file_path: "docs/validation-report-2025-12-12.md"
+      - id: "create-ux-design"
+        status: "conditional"
+  - phase: "Solutioning"
+    workflows:
+      - id: "create-architecture"
+        status: "completed"
+        file_path: "docs/architecture.md"
+      - id: "create-epics-and-stories"
+        status: "completed"
+        file_path: "docs/epics.md"
+      - id: "test-design"
+        status: "recommended"
+      - id: "validate-architecture"
+        status: "completed"
+        file_path: "docs/validation-report-2025-12-12-architecture.md"
+      - id: "implementation-readiness"
+        status: "completed"
+        file_path: "docs/implementation-readiness-report-2025-12-10.md"
+  - phase: "Implementation"
+    workflows:
+      - id: "sprint-planning"
+        status: "pending"

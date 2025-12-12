@@ -82,13 +82,13 @@ In today's competitive job market, a generic application is often overlooked. St
 
 ## 8. Functional Criteria
 
-- The system MUST allow users to create an account and log in securely.
-- The system MUST allow users to upload CVs in PDF, DOC, and TXT formats.
-- The system MUST provide a text area for users to paste a job description.
-- The system MUST present AI-generated suggestions to the user in a clear, itemized list.
-- Each suggestion MUST be individually approvable/rejectable by the user.
-- The system MUST generate a downloadable application letter based on the user's CV, the job description, and the approved suggestions.
-- The system MUST store user documents securely and associate them with the correct user profile.
+- **FR1, FR2:** The system MUST allow users to create an account and log in securely.
+- **FR3:** The system MUST allow users to upload CVs in PDF, DOC, and TXT formats.
+- **FR4:** The system MUST provide a text area for users to paste a job description.
+- **FR5:** The system MUST present AI-generated suggestions to the user in a clear, itemized list.
+- **FR5:** Each suggestion MUST be individually approvable/rejectable by the user.
+- **FR6, FR7:** The system MUST generate a downloadable application letter based on the user's CV, the job description, and the approved suggestions.
+- **FR8:** The system MUST store user documents securely and associate them with the correct user profile.
 
 ## 9. Non-Functional Criteria
 
