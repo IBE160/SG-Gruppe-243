@@ -1,280 +1,370 @@
-# Architecture & System Design: AI CV & Job Application Assistant
+# ibe160 Architecture
 
-This document outlines the complete architecture and system design for the AI CV & Job Application Assistant. It serves as the technical blueprint for development.
+## Executive Summary
 
-## 1. System Architecture Overview
+The AI CV & Job Application Assistant is a web application designed to empower students and recent graduates in the competitive job market. By leveraging AI to analyze CVs against job descriptions, it automates the customization of application materials, identifying qualification gaps and generating tailored cover letters. The primary goal is to save users time while significantly improving the quality and effectiveness of their applications.
 
-The system is designed as a modern web application with a clear separation between the frontend client and the backend service.
+## Guiding Principles
 
--   **Frontend:** A single-page application (SPA) built with **React**, **TypeScript**, and styled with **Tailwind CSS**. It is responsible for all user interactions and rendering the UI. It communicates with the backend via a RESTful API.
+- **Product over Plumbing:** We prioritize features that deliver user value over complex custom infrastructure.
+- **Velocity via Standardization:** We use standard, opinionated tools (T3 Stack) to avoid configuration fatigue.
+- **Safety by Design:** We leverage TypeScript and Type Safety to prevent entire classes of bugs.
 
--   **Backend:** A RESTful API server built with **Node.js**, **Express.js**, and **TypeScript**. It handles business logic, including user authentication, data storage, and orchestrating calls to the external AI service.
+{{project_initialization_section}}
 
--   **Database:** A **MongoDB** NoSQL database is used for data persistence. It stores user profiles, CV data, and the results of generated analyses. **Mongoose** will be used as the Object Data Modeling (ODM) library to interact with MongoDB.
+## 2. Project Initialization
 
--   **AI Service:** An external Large Language Model (LLM) is accessed via its API. The backend sends it the user's CV text and the job description, and the LLM returns the analysis (qualification gaps, improvement suggestions) and the generated application letter.
+### 2.1 Starter Template Decision
 
-The interaction flow is as follows: The user interacts with the React frontend, which sends requests to the Node.js backend API. The backend processes these requests, reading from or writing to the MongoDB database. For analysis and generation tasks, the backend makes a further API call to the LLM and then returns the processed results to the frontend.
+**Decision:** Modern Unified Approach (Next.js) with T3 Stack (create-t3-app)
 
-## 2. Architecture Diagram
+**Rationale:** This approach leverages a robust, modern, and type-safe full-stack framework that aligns with project goals for efficiency and scalability. It simplifies development and deployment compared to a split MERN stack, while still utilizing React, Node.js (via Next.js API Routes), TypeScript, and offering strong database integration (Prisma for MongoDB).
+
+**Initialization Command:** `npm create t3-app@latest`
+
+**Key Decisions Provided by Starter (T3 Stack):**
+- **Framework:** Next.js
+- **Language:** TypeScript
+- **Full-stack RPC:** tRPC
+- **ORM:** Prisma
+- **Authentication:** NextAuth.js
+- **Styling:** Tailwind CSS
+- **Code Quality:** ESLint, Prettier (typically integrated)
+- **Testing:** Jest (can be integrated)
+- **Project Structure:** Opinionated, feature-based or layer-based.
+
+{{starter_template_decision}}
+
+## Decision Summary
+
+| Category | Decision | Version | Affects Epics | Rationale |
+| -------- | -------- | ------- | ------------- | --------- |
+
+{{decision_table_rows}}
+
+## Project Structure
 
 ```
-+---------------------------------+
-|      Frontend (Browser)         |
-|   (React, TypeScript, Tailwind) |
-+---------------------------------+
-              |
-              | (HTTPS/REST API)
-              v
-+---------------------------------+
-|       Backend API Server        |
-| (Node.js, Express, TypeScript)  |
-+---------------------------------+
-      |                 |
-      | (DB Connection) | (HTTPS/REST API)
-      v                 v
-+-----------+     +-------------+
-|  Database |     | External    |
-| (MongoDB) |     | LLM Service |
-+-----------+     +-------------+
+.
+├── src/
+│   ├── env/                      # Environment variables handling
+│   ├── server/                   # Backend logic (tRPC, Auth, DB)
+│   │   ├── auth.ts               # NextAuth.js configuration
+│   │   ├── api/                  # tRPC API routers
+│   │   │   ├── root.ts           # Main tRPC router
+│   │   │   ├── routers/          # Individual feature routers
+│   │   │   │   ├── user.ts       # User account & auth (Epic 1)
+│   │   │   │   ├── cv.ts         # CV management (Epic 2)
+│   │   │   │   ├── job.ts        # Job description (Epic 2)
+│   │   │   │   └── ai.ts         # AI integration (Epic 3)
+│   │   │   └── _app.ts           # tRPC context setup
+│   │   ├── db.ts                 # Prisma Client setup for MongoDB
+│   │   └── common.ts             # Shared types/helpers
+│   ├── app/ (or pages/)          # Next.js App Router (recommended by T3)
+│   │   ├── layout.tsx            # Root layout
+│   │   ├── page.tsx              # Home page
+│   │   └── api/                  # Next.js API routes (e.g., NextAuth catch-all)
+│   │       └── auth/[...nextauth]/route.ts # NextAuth.js API route
+│   ├── components/               # Reusable UI components
+│   ├── styles/                   # Tailwind CSS setup
+│   ├── utils/                    # General utilities (e.g., FileStorageService.ts)
+│   └── trpc/                     # tRPC client-side utilities
+├── prisma/                       # Prisma schema and migrations
+│   └── schema.prisma             # Database schema definition
+├── public/                       # Static assets
+├── .env                          # Environment variables
+├── package.json                  # Project dependencies and scripts
+├── tsconfig.json                 # TypeScript configuration
+├── next.config.js                # Next.js configuration
+└── ...
 ```
 
-## 3. API Design (MVP)
+## Epic to Architecture Mapping
 
-All endpoints requiring authentication will expect a `Authorization: Bearer <token>` header.
+| Epic (from epics.md) | Architectural Component(s) |
+| :-------------------- | :-------------------------- |
+| **Epic 1: User Account & Authentication** | `src/server/auth.ts`, `src/app/api/auth/[...nextauth]/route.ts` (or `pages/api`), MongoDB `users` collection |
+| **Epic 2: CV Management & Job Description Input** | `src/server/api/routers/cv.ts`, `src/server/api/routers/job.ts`, `src/utils/FileStorageService.ts`, MongoDB `cvs` collection |
+| **Epic 3: AI-Powered Application Generation & Feedback** | `src/server/api/routers/ai.ts`, `src/utils/ai.ts` (Gemini integration), MongoDB `generatedApplications` collection |
+| **Epic 4: Output & Download** | `src/server/api/routers/output.ts` |
 
-Error responses will follow a simple structure:
-```json
-{
-  "error": "A brief, human-readable error message",
-  "details": "Optional technical details about the error"
+## Technology Stack Details
+
+### Core Technologies
+
+{{core_stack_details}}
+
+### AI Integration
+
+**Decision:** Google Gemini (1.5 Flash/Pro) via Vercel AI SDK
+
+**Rationale:**
+- **Cost-effectiveness:** Leverages Google's generous free tier for Gemini, crucial for student project budget. (Primary driver)
+- **Unified Architecture:** Maintains a pure Next.js/TypeScript stack, avoiding complexities of a multi-language backend (e.g., Python).
+- **Streaming UI:** Vercel AI SDK provides seamless streaming responses (word-by-word generation) for enhanced user experience.
+- **Ease of Integration:** Designed for Next.js, simplifying LLM integration and abstracting API complexities.
+
+**Usage Patterns:**
+- **Analysis Mode:** For CV and Job Description parsing (e.g., skill extraction, gap identification). Will leverage **Structured Outputs (JSON mode)** to ensure precision and reduce hallucinations.
+- **Generation Mode:** For crafting personalized cover letters and CV improvement suggestions.
+
+**API Route:** `/api/generate` (POST)
+**Input:** CV text, Job Description text.
+**Process:** System Prompt -> User Prompt -> Streaming Output.
+
+**Mitigation Strategies (AI Specific Risks):**
+- **Rate Limiting:** Implement robust client-side and server-side error handling for "Rate Limit Exceeded" responses. Provide clear user feedback to retry later.
+- **Quality Control:** Implement 'human-in-the-loop' editing for all AI-generated output. Always present generated text in an editable format for user review and approval.
+- **Future-Proofing:** Code LLM interactions using Vercel AI SDK abstractions to allow for easy model switching (e.g., to OpenAI) if budget or quality requirements change.
+
+### Integration Points
+
+- **Frontend <-> Backend (API):** tRPC for type-safe RPC calls.
+- **Backend <-> Database:** Prisma ORM (via Prisma Accelerate) for MongoDB interactions.
+- **Backend <-> LLM:** Vercel AI SDK for Google Gemini integration.
+- **Backend <-> Email Service:** Resend API for transactional emails.
+- **Authentication:** NextAuth.js for OAuth and local authentication flows.
+
+{{novel_pattern_designs_section}}
+
+## Implementation Patterns
+
+These patterns ensure consistent implementation across all AI agents:
+
+### Date/Time Patterns
+
+**Decision:** Store UTC ISO 8601, display in user's local timezone.
+
+**Rationale:**
+- **Consistency:** UTC storage eliminates timezone ambiguity in the database.
+- **User Experience:** Displaying in local time is intuitive for users.
+- **Simplicity:** For MVP, avoids complex user-configurable timezone settings.
+
+**Implementation Strategy:**
+- Store all `Date` objects in MongoDB as ISO 8601 strings in UTC.
+- Frontend will use browser's `Intl.DateTimeFormat` or a library like `date-fns` to format dates to the user's local timezone.
+- Avoid storing raw Unix timestamps or local time without timezone info.
+
+{{implementation_patterns}}
+
+## Consistency Rules
+
+### Naming Conventions
+
+{{naming_conventions}}
+
+### Code Organization
+
+{{code_organization_patterns}}
+
+### Error Handling
+
+**Decision:** Centralized Error Handling
+
+**Rationale:**
+- **Consistency:** Ensures a uniform approach to error management across the application, improving user experience and developer debugging.
+- **Robustness:** Prevents uncaught exceptions from crashing the application.
+- **Maintainability:** Easier to manage, update, and monitor error logic from a single point.
+
+**Implementation Strategy:**
+- For UI (Frontend): Implement React Error Boundaries to catch errors in components and display fallback UIs.
+- For API Routes (Backend): Implement global error handling middleware in Next.js API routes to catch and format API errors.
+- Error messages for users should be clear and non-technical.
+- Technical error details should be logged internally.
+
+### Logging Strategy
+
+**Decision:** Structured Logging (JSON format)
+
+**Rationale:**
+- **Analyzability:** Enables efficient searching, filtering, and analysis of logs by tools and systems (e.g., Vercel's built-in logs, external logging services).
+- **Consistency:** Provides a uniform format for log messages across the application, improving debuggability.
+- **Scalability:** Better suited for large-scale applications where logs are aggregated and processed automatically.
+
+**Implementation Strategy:**
+- Implement a logging utility that outputs log messages in JSON format to `stdout`/`stderr`.
+- Start with basic console-based JSON logging.
+- Ensure key fields (timestamp, log level, message, context, error details) are always present.
+
+## Testing Strategy
+
+### Testing Strategy
+
+**Decision:** Traditional Testing (Unit, Integration, End-to-End)
+
+**Rationale:**
+- **PRD Alignment:** Directly implements the testing frameworks and levels outlined in the Product Requirements Document.
+- **Maintainable Quality:** Ensures a high-quality and reliable application through comprehensive test coverage across different layers.
+- **Beginner-Friendly:** Provides a clear and straightforward path for a new team to establish testing practices without the initial overhead of TDD/BDD methodologies.
+
+**Implementation Strategy:**
+- **Frontend (Unit/Component):** Use Jest and React Testing Library for React components.
+- **Backend (Unit/Integration):** Use Jest and Supertest for API endpoints and business logic.
+- **End-to-End (E2E):** Use Cypress or Playwright for simulating full user journeys.
+
+{{logging_approach}}
+
+## Data Architecture
+
+### Data Persistence
+
+**Decision:** MongoDB with Prisma ORM + Prisma Accelerate
+
+**Rationale:**
+- **MongoDB:** Matches PRD requirement. Flexible schema fits the evolving nature of CV parsing results.
+- **Prisma ORM:** Provides type-safe database access (end-to-end TypeScript).
+- **Prisma Accelerate:** Critical for Vercel deployment. It manages connection pooling to prevent "too many connections" errors in serverless functions and offers edge caching for performance.
+
+**Connection Strategy:**
+- Use `DATABASE_URL` for Prisma Accelerate connection string.
+- Enable connection pooling.
+- Use `directUrl` for migrations if needed.
+
+### Data Models and Relationships
+
+**User**
+- Standard NextAuth.js User model (name, email, image)
+- Relations: hasMany CVs, hasMany Applications
+
+**CV**
+- Stores uploaded CV data
+- Fields: `content` (BinData), `filename`, `parsedText` (String)
+- Relations: belongsTo User
+
+**Application**
+- Stores the generation context and result
+- Fields: `jobDescription` (Text), `generatedLetter` (Text), `status` (Draft/Completed)
+- Relations: belongsTo User, references CV
+
+**Prisma Schema Concept:**
+```prisma
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
+  cvs       CV[]
+  apps      Application[]
+  // ... NextAuth fields
+}
+
+model CV {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  content   Bytes    // File storage
+  filename  String
+  createdAt DateTime @default(now())
+}
+
+model Application {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  cvId      String   @db.ObjectId
+  jobDesc   String
+  letter    String?
+  status    String   @default("DRAFT")
 }
 ```
 
----
+### Email Service
+
+**Decision:** Resend with React Email
+
+**Rationale:**
+- **Cost-effectiveness:** Resend offers a free tier (3,000 emails/month) sufficient for MVP needs.
+- **Developer Experience:** Integrates seamlessly with Next.js/T3 Stack using `react-email`, allowing email templates to be built with React components, aligning with frontend technology.
+- **Deliverability:** Specializes in transactional emails, ensuring high deliverability for critical messages like registration confirmations.
+
+## API Contracts
+
+{{api_specifications}}
+
+## Security Architecture
 
 ### Authentication
 
-**Endpoint:** `POST /auth/register`
--   **Description:** Registers a new user.
--   **Authentication:** Not required.
--   **Request Body:**
-    ```json
-    {
-      "name": "String",
-      "email": "String",
-      "password": "String"
-    }
-    ```
--   **Response Body (Success 201):**
-    ```json
-    {
-      "message": "User registered successfully."
-    }
-    ```
+**Decision:** NextAuth.js with Google/Microsoft OAuth and Conditional Email Verification
 
-**Endpoint:** `POST /auth/login`
--   **Description:** Logs in an existing user and returns a JWT.
--   **Authentication:** Not required.
--   **Request Body:**
-    ```json
-    {
-      "email": "String",
-      "password": "String"
-    }
-    ```
--   **Response Body (Success 200):**
-    ```json
-    {
-      "token": "String (JWT)",
-      "userId": "ObjectId"
-    }
-    ```
+**Rationale:**
+- **User Experience:** Offers frictionless sign-up via familiar OAuth providers.
+- **Security & Abuse Prevention:** OAuth provides verified identities, reducing bot abuse. Email verification for local accounts ensures valid contact.
+- **Integration:** Leverages NextAuth.js (part of T3 Stack) for robust, flexible authentication.
+- **Cost-effectiveness:** Minimizes Resend usage to only "local" accounts, aligning with free-tier objectives.
+
+**Implementation Strategy:**
+- Integrate NextAuth.js with Google and Microsoft OAuth providers.
+- Implement email/password login for "local" accounts.
+- Utilize Resend for email verification exclusively for "local" accounts.
+
+{{security_approach}}
+
+## Performance Considerations
+
+{{performance_strategies}}
+
+## Deployment Architecture
+
+## 15. Deployment Architecture
+
+**Decision:** Vercel
+
+**Rationale:** Optimal for Next.js applications, providing seamless deployment, global CDN, serverless functions, and excellent developer experience. Aligns with goals for efficiency and performance.
+
+## Development Environment
+
+### Prerequisites
+
+{{development_prerequisites}}
+
+### Setup Commands
+
+```bash
+{{setup_commands}}
+```
+
+## 16. Risk Assessment (Architecture)
+
+**Identified Risks & Mitigations:**
+
+| Risk | Impact | Mitigation Strategy |
+| :--- | :--- | :--- |
+| **Learning Curve (tRPC/Next.js)** | High | **CRITICAL:** Rely heavily on T3 documentation and standard patterns. Avoid complex customizations initially. |
+| **Vendor Lock-in (Vercel)** | Medium | Avoid Vercel-proprietary features (Edge Config, KV) unless necessary. Stick to standard Next.js API routes to maintain portability. |
+| **Complexity Overload** | Medium | Start simple. Use the default T3 setup without adding extra libraries until required. |
+
+## 18. Serverless Database Strategy
+
+**Risk Mitigation for Vercel + MongoDB:**
+
+- **Connection Pooling:** We MUST use a connection pooling strategy (e.g., Prisma Accelerate or MongoDB Atlas Data API) to prevent serverless functions from exhausting database connections.
+- **Cost Controls:** Vercel Spend Management alerts will be configured at $5/month threshold.
+- **Edge Compatibility:** Auth and simple reads will use Edge-compatible patterns where possible to reduce cold starts.
+
+## Architecture Decision Records (ADRs)
+
+| ID | Decision | Status | Context | Consequence |
+| :--- | :--- | :--- | :--- | :--- |
+| **ADR-001** | **Next.js T3 Stack** | Accepted | Need rapid, type-safe full-stack dev. | High velocity, Vercel lock-in accepted. |
+| **ADR-002** | **Vercel Deployment** | Accepted | Best DX for Next.js. | Optimized performance, potential cost at scale. |
+| **ADR-003** | **MongoDB + Prisma** | Accepted | Flexible schema needed for CVs. | Requires connection pooling (Accelerate). |
+| **ADR-004** | **Gemini + Vercel AI** | Accepted | Zero-cost constraint. | Rate limits handled via UI; JSON mode for quality. |
+| **ADR-005** | **MongoDB File Storage** | Accepted | Avoid S3 complexity/cost for MVP. | Database bloat risk long-term; abstracted via FileService. |
+| **ADR-006** | **Resend Email** | Accepted | Free tier, easy integration. | Reliable transactional emails. |
+| **ADR-007** | **Hybrid Auth** | Accepted | Balance friction vs security. | Google/Microsoft OAuth + Verified Local Auth. |
+
+## 17. Strategic Rationale (SWOT)
+
+**Why T3 Stack?**
+
+| Strength | Weakness | Opportunity | Threat |
+| :--- | :--- | :--- | :--- |
+| **Type Safety:** End-to-end TypeScript prevents bugs. | **Complexity:** Steeper learning curve than plain Express. | **Scale:** Easy serverless scaling. | **Lock-in:** High dependence on Vercel ecosystem. |
+| **Velocity:** Rapid scaffolding with `create-t3-app`. | **Abstraction:** 'Magic' can hide details. | **Market:** High demand for Next.js skills. | **Cost:** Serverless limits. |
+
+**Verdict:** The trade-off of **portability** for **velocity and safety** is accepted to meet the "Time Efficiency" goal.
 
 ---
 
-### CV Management
-
-**Endpoint:** `POST /cv/upload`
--   **Description:** Uploads a CV file for the authenticated user. The backend will parse the file and store its text content.
--   **Authentication:** Required.
--   **Request Body:** `multipart/form-data` with a single field `cv` containing the file (PDF, DOCX, TXT).
--   **Response Body (Success 201):**
-    ```json
-    {
-      "cvId": "ObjectId",
-      "message": "CV uploaded and processed successfully."
-    }
-    ```
-
----
-
-### Analysis & Generation
-
-**Endpoint:** `POST /analysis`
--   **Description:** Performs a qualification gap analysis and suggests CV improvements by comparing a CV against a job description.
--   **Authentication:** Required.
--   **Request Body:**
-    ```json
-    {
-      "cvId": "ObjectId",
-      "jobDescription": "String"
-    }
-    ```
--   **Response Body (Success 200):**
-    ```json
-    {
-      "analysisId": "ObjectId",
-      "qualificationGaps": ["String"],
-      "cvImprovementSuggestions": ["String"]
-    }
-    ```
-
-**Endpoint:** `POST /application-generation`
--   **Description:** Generates a full application letter.
--   **Authentication:** Required.
--   **Request Body:**
-    ```json
-    {
-      "analysisId": "ObjectId" // From the /analysis step
-    }
-    ```
--   **Response Body (Success 200):**
-    ```json
-    {
-      "generatedLetter": "String"
-    }
-    ```
-
-## 4. Database Schema (Mongoose)
-
-### `users` Collection
-
-```javascript
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'Name is required.'],
-    trim: true
-  },
-  email: {
-    type: String,
-    required: [true, 'Email is required.'],
-    unique: true,
-    lowercase: true,
-    trim: true,
-    match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address.']
-  },
-  password: {
-    type: String,
-    required: [true, 'Password is required.'],
-    minlength: [8, 'Password must be at least 8 characters long.']
-  }
-}, { timestamps: true });
-```
-
-### `cvs` Collection
-
-```javascript
-const cvSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  },
-  originalFilename: {
-    type: String,
-    required: true
-  },
-  storagePath: { // Path to the locally stored file (e.g., 'backend/uploads/cv/unique-filename.pdf')
-    type: String,
-    required: true
-  },
-  extractedText: {
-    type: String,
-    required: true
-  }
-}, { timestamps: true });
-```
-
-### `generatedApplications` Collection
-
-```javascript
-const generatedApplicationSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  },
-  cvId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Cv',
-    required: true
-  },
-  jobDescription: {
-    type: String,
-    required: true
-  },
-  analysisResults: {
-    qualificationGaps: [{ type: String }],
-    cvImprovementSuggestions: [{ type: String }]
-  },
-  generatedLetter: {
-    type: String
-  }
-}, { timestamps: true });
-```
-
-## 5. Frontend Page Map
-
--   **Landing Page (`/`)**
-    -   **Purpose:** Introduce the application to new users and provide a clear call-to-action.
-    -   **UI Elements:** Navigation bar, hero section with headline and sub-headline, "Sign Up" button, "Log In" link.
-    -   **Interactions:** Clicking "Sign Up" navigates to the Register page. Clicking "Log In" navigates to the Login page.
-
--   **Register Page (`/register`)**
-    -   **Purpose:** Allow new users to create an account.
-    -   **UI Elements:** Registration form (name, email, password), "Register" button, link to Login page.
-    -   **Interactions:** On form submission, a request is sent to `POST /auth/register`. On success, the user is redirected to the Login page.
-
--   **Login Page (`/login`)**
-    -   **Purpose:** Allow existing users to sign in.
-    -   **UI Elements:** Login form (email, password), "Log In" button, link to Register page.
-    -   **Interactions:** On form submission, a request is sent to `POST /auth/login`. On success, the user is redirected to the Dashboard.
-
--   **Dashboard (`/dashboard`)**
-    -   **Purpose:** The main hub for authenticated users. Provides access to core features.
-    -   **UI Elements:** Welcome message, list of previously uploaded CVs, button to "Start New Analysis".
-    -   **Interactions:** Clicking "Start New Analysis" navigates to the CV Upload / Analysis page.
-
--   **CV Upload & Analysis Page (`/analysis/new`)**
-    -   **Purpose:** To upload a CV and provide a job description for analysis.
-    -   **UI Elements:** File upload input for CV, text area for job description, "Analyze" button.
-    -   **Interactions:** User uploads a file (triggers `POST /cv/upload`), pastes text, and clicks "Analyze" (triggers `POST /analysis`). The user is then redirected to the Analysis Results page.
-
--   **Analysis Results Page (`/analysis/results/:analysisId`)**
-    -   **Purpose:** Display the results of the CV vs. job description analysis.
-    -   **UI Elements:** Sections for "Qualification Gaps" and "CV Improvement Suggestions", a "Generate Application Letter" button.
-    -   **Interactions:** Clicking the "Generate Application Letter" button triggers `POST /application-generation` and redirects the user to the Application Generator page.
-
--   **Application Generator Page (`/application/view/:analysisId`)**
-    -   **Purpose:** Display the final, AI-generated application letter.
-    -   **UI Elements:** A text box containing the generated letter, a "Copy to Clipboard" button.
-    -   **Interactions:** User can copy the text to use elsewhere.
-
-## 6. Implementation Readiness Checklist
-
--   [x] **What is ready:**
-    -   The product requirements are clearly defined in the PRD.
-    -   The core features for the MVP are prioritized.
-    -   The high-level system architecture and technology stack are chosen.
-    -   The API endpoints for the MVP are defined.
-    -   The database schema is designed.
-    -   The frontend user flow and page structure are mapped out.
-
--   [x] **Resolved Decisions:**
-    -   **LLM API Key Management:** The LLM API key will be stored locally in a `.env` file in the backend, loaded via `process.env`. This is sufficient for local development.
-    -   **File Storage Solution:** Uploaded CVs will be stored on the local filesystem in the `backend/uploads/cv/` directory. The `storagePath` in the database will point to this local file path.
-    -   **Error Handling Strategy:** A simple, centralized error-handling middleware will be used in Express. Controllers will use `try/catch` blocks, and errors will be logged to the console.
-
-The system is now **100% ready** for backend implementation to begin.
+_Generated by BMAD Decision Architecture Workflow v1.0_
+_Date: 2025-12-10_
+_For: BIP_
