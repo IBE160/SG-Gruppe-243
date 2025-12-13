@@ -47,4 +47,4 @@ workflow_status:
   - phase: "Implementation"
     workflows:
       - id: "sprint-planning"
-        status: "pending"
+        status: "completed"
