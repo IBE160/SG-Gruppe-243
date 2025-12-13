@@ -48,3 +48,7 @@ workflow_status:
     workflows:
       - id: "sprint-planning"
         status: "completed"
+      - id: "project-initialization"
+        status: "completed"
+      - id: "1-1-user-registration-dev"
+        status: "in-progress"
