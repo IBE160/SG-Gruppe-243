@@ -21,7 +21,8 @@ model User {
   accounts         Account[]
   sessions         Session[]
   jobDescriptions  JobDescription[]
-  generatedLetters GeneratedLetter[] // Add this line
+  generatedLetters GeneratedLetter[]
+  cvs              CV[] // Add this line
   createdAt        DateTime          @default(now())
   updatedAt        DateTime          @updatedAt
 }
@@ -66,9 +67,20 @@ model JobDescription {
   userId           String            @db.ObjectId
   user             User              @relation(fields: [userId], references: [id], onDelete: Cascade)
   text             String
-  generatedLetters GeneratedLetter[] // Add this line
+  generatedLetters GeneratedLetter[]
   createdAt        DateTime          @default(now())
   updatedAt        DateTime          @updatedAt
+}
+
+model CV {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fileName  String
+  fileType  String
+  content   String // Storing Base64 or text content
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model GeneratedLetter {
@@ -77,8 +89,9 @@ model GeneratedLetter {
   user             User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   jobDescriptionId String         @db.ObjectId
   jobDescription   JobDescription @relation(fields: [jobDescriptionId], references: [id], onDelete: Cascade)
-  cvId             String?        @db.ObjectId // Optional for now as no CV model yet
+  cvId             String?        @db.ObjectId // Optional for now
   content          String
+  suggestions      String[]
   createdAt        DateTime       @default(now())
   updatedAt        DateTime       @updatedAt
 }
