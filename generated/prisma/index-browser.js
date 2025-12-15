@@ -154,6 +154,35 @@ exports.Prisma.VerificationTokenScalarFieldEnum = {
   expires: 'expires'
 };
 
+exports.Prisma.JobDescriptionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  text: 'text',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CVScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  fileName: 'fileName',
+  fileType: 'fileType',
+  content: 'content',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.GeneratedLetterScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  jobDescriptionId: 'jobDescriptionId',
+  cvId: 'cvId',
+  content: 'content',
+  suggestions: 'suggestions',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -169,7 +198,10 @@ exports.Prisma.ModelName = {
   User: 'User',
   Account: 'Account',
   Session: 'Session',
-  VerificationToken: 'VerificationToken'
+  VerificationToken: 'VerificationToken',
+  JobDescription: 'JobDescription',
+  CV: 'CV',
+  GeneratedLetter: 'GeneratedLetter'
 };
 
 /**

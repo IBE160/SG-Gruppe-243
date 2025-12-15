@@ -8,6 +8,7 @@ import { api } from "~/trpc/react";
 import { toast } from "sonner";
 
 import { Button } from "~/components/ui/button";
+import { Checkbox } from "~/components/ui/checkbox";
 import {
   Form,
   FormControl,
@@ -23,16 +24,19 @@ const formSchema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Invalid email address"),
   password: z.string().min(8, "Password must be at least 8 characters"),
+  skipVerification: z.boolean().optional(),
 });
 
 export default function RegisterPage() {
   const router = useRouter();
   const createUser = api.user.create.useMutation({
-    onSuccess: () => {
-      toast.success("Account created! Please check your email.");
-      // Redirect to verification page (to be created) or show success state
-      // For now, redirect to a verify-email page
-      router.push("/verify-email");
+    onSuccess: (data, variables) => {
+      toast.success("Account created!");
+      if (variables.skipVerification) {
+        router.push("/login");
+      } else {
+        router.push("/verify-email");
+      }
     },
     onError: (error) => {
       toast.error(error.message);
@@ -45,6 +49,7 @@ export default function RegisterPage() {
       name: "",
       email: "",
       password: "",
+      skipVerification: false,
     },
   });
 
@@ -97,6 +102,25 @@ export default function RegisterPage() {
                       <Input type="password" placeholder="********" {...field} />
                     </FormControl>
                     <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="skipVerification"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4 shadow">
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel>
+                        Skip Email Verification (for testing)
+                      </FormLabel>
+                    </div>
                   </FormItem>
                 )}
               />

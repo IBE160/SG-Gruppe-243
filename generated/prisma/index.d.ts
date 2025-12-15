@@ -33,6 +33,21 @@ export type Session = $Result.DefaultSelection<Prisma.$SessionPayload>
  * 
  */
 export type VerificationToken = $Result.DefaultSelection<Prisma.$VerificationTokenPayload>
+/**
+ * Model JobDescription
+ * 
+ */
+export type JobDescription = $Result.DefaultSelection<Prisma.$JobDescriptionPayload>
+/**
+ * Model CV
+ * 
+ */
+export type CV = $Result.DefaultSelection<Prisma.$CVPayload>
+/**
+ * Model GeneratedLetter
+ * 
+ */
+export type GeneratedLetter = $Result.DefaultSelection<Prisma.$GeneratedLetterPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -158,6 +173,36 @@ export class PrismaClient<
     * ```
     */
   get verificationToken(): Prisma.VerificationTokenDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.jobDescription`: Exposes CRUD operations for the **JobDescription** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more JobDescriptions
+    * const jobDescriptions = await prisma.jobDescription.findMany()
+    * ```
+    */
+  get jobDescription(): Prisma.JobDescriptionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.cV`: Exposes CRUD operations for the **CV** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CVS
+    * const cVS = await prisma.cV.findMany()
+    * ```
+    */
+  get cV(): Prisma.CVDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.generatedLetter`: Exposes CRUD operations for the **GeneratedLetter** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more GeneratedLetters
+    * const generatedLetters = await prisma.generatedLetter.findMany()
+    * ```
+    */
+  get generatedLetter(): Prisma.GeneratedLetterDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -602,7 +647,10 @@ export namespace Prisma {
     User: 'User',
     Account: 'Account',
     Session: 'Session',
-    VerificationToken: 'VerificationToken'
+    VerificationToken: 'VerificationToken',
+    JobDescription: 'JobDescription',
+    CV: 'CV',
+    GeneratedLetter: 'GeneratedLetter'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -621,7 +669,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "account" | "session" | "verificationToken"
+      modelProps: "user" | "account" | "session" | "verificationToken" | "jobDescription" | "cV" | "generatedLetter"
       txIsolationLevel: never
     }
     model: {
@@ -921,6 +969,228 @@ export namespace Prisma {
           }
         }
       }
+      JobDescription: {
+        payload: Prisma.$JobDescriptionPayload<ExtArgs>
+        fields: Prisma.JobDescriptionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JobDescriptionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobDescriptionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JobDescriptionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobDescriptionPayload>
+          }
+          findFirst: {
+            args: Prisma.JobDescriptionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobDescriptionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JobDescriptionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobDescriptionPayload>
+          }
+          findMany: {
+            args: Prisma.JobDescriptionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobDescriptionPayload>[]
+          }
+          create: {
+            args: Prisma.JobDescriptionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobDescriptionPayload>
+          }
+          createMany: {
+            args: Prisma.JobDescriptionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.JobDescriptionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobDescriptionPayload>
+          }
+          update: {
+            args: Prisma.JobDescriptionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobDescriptionPayload>
+          }
+          deleteMany: {
+            args: Prisma.JobDescriptionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JobDescriptionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.JobDescriptionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobDescriptionPayload>
+          }
+          aggregate: {
+            args: Prisma.JobDescriptionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJobDescription>
+          }
+          groupBy: {
+            args: Prisma.JobDescriptionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JobDescriptionGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.JobDescriptionFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.JobDescriptionAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.JobDescriptionCountArgs<ExtArgs>
+            result: $Utils.Optional<JobDescriptionCountAggregateOutputType> | number
+          }
+        }
+      }
+      CV: {
+        payload: Prisma.$CVPayload<ExtArgs>
+        fields: Prisma.CVFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CVFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CVPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CVFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CVPayload>
+          }
+          findFirst: {
+            args: Prisma.CVFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CVPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CVFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CVPayload>
+          }
+          findMany: {
+            args: Prisma.CVFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CVPayload>[]
+          }
+          create: {
+            args: Prisma.CVCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CVPayload>
+          }
+          createMany: {
+            args: Prisma.CVCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.CVDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CVPayload>
+          }
+          update: {
+            args: Prisma.CVUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CVPayload>
+          }
+          deleteMany: {
+            args: Prisma.CVDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CVUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.CVUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CVPayload>
+          }
+          aggregate: {
+            args: Prisma.CVAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCV>
+          }
+          groupBy: {
+            args: Prisma.CVGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CVGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.CVFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.CVAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.CVCountArgs<ExtArgs>
+            result: $Utils.Optional<CVCountAggregateOutputType> | number
+          }
+        }
+      }
+      GeneratedLetter: {
+        payload: Prisma.$GeneratedLetterPayload<ExtArgs>
+        fields: Prisma.GeneratedLetterFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.GeneratedLetterFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedLetterPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.GeneratedLetterFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedLetterPayload>
+          }
+          findFirst: {
+            args: Prisma.GeneratedLetterFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedLetterPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.GeneratedLetterFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedLetterPayload>
+          }
+          findMany: {
+            args: Prisma.GeneratedLetterFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedLetterPayload>[]
+          }
+          create: {
+            args: Prisma.GeneratedLetterCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedLetterPayload>
+          }
+          createMany: {
+            args: Prisma.GeneratedLetterCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.GeneratedLetterDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedLetterPayload>
+          }
+          update: {
+            args: Prisma.GeneratedLetterUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedLetterPayload>
+          }
+          deleteMany: {
+            args: Prisma.GeneratedLetterDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.GeneratedLetterUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.GeneratedLetterUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$GeneratedLetterPayload>
+          }
+          aggregate: {
+            args: Prisma.GeneratedLetterAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateGeneratedLetter>
+          }
+          groupBy: {
+            args: Prisma.GeneratedLetterGroupByArgs<ExtArgs>
+            result: $Utils.Optional<GeneratedLetterGroupByOutputType>[]
+          }
+          findRaw: {
+            args: Prisma.GeneratedLetterFindRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          aggregateRaw: {
+            args: Prisma.GeneratedLetterAggregateRawArgs<ExtArgs>
+            result: JsonObject
+          }
+          count: {
+            args: Prisma.GeneratedLetterCountArgs<ExtArgs>
+            result: $Utils.Optional<GeneratedLetterCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1004,6 +1274,9 @@ export namespace Prisma {
     account?: AccountOmit
     session?: SessionOmit
     verificationToken?: VerificationTokenOmit
+    jobDescription?: JobDescriptionOmit
+    cV?: CVOmit
+    generatedLetter?: GeneratedLetterOmit
   }
 
   /* Types for Logging */
@@ -1086,11 +1359,17 @@ export namespace Prisma {
   export type UserCountOutputType = {
     accounts: number
     sessions: number
+    jobDescriptions: number
+    generatedLetters: number
+    cvs: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
+    jobDescriptions?: boolean | UserCountOutputTypeCountJobDescriptionsArgs
+    generatedLetters?: boolean | UserCountOutputTypeCountGeneratedLettersArgs
+    cvs?: boolean | UserCountOutputTypeCountCvsArgs
   }
 
   // Custom InputTypes
@@ -1116,6 +1395,58 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountSessionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SessionWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountJobDescriptionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JobDescriptionWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountGeneratedLettersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GeneratedLetterWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountCvsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CVWhereInput
+  }
+
+
+  /**
+   * Count Type JobDescriptionCountOutputType
+   */
+
+  export type JobDescriptionCountOutputType = {
+    generatedLetters: number
+  }
+
+  export type JobDescriptionCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    generatedLetters?: boolean | JobDescriptionCountOutputTypeCountGeneratedLettersArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * JobDescriptionCountOutputType without action
+   */
+  export type JobDescriptionCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobDescriptionCountOutputType
+     */
+    select?: JobDescriptionCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * JobDescriptionCountOutputType without action
+   */
+  export type JobDescriptionCountOutputTypeCountGeneratedLettersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GeneratedLetterWhereInput
   }
 
 
@@ -1313,6 +1644,9 @@ export namespace Prisma {
     updatedAt?: boolean
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
+    jobDescriptions?: boolean | User$jobDescriptionsArgs<ExtArgs>
+    generatedLetters?: boolean | User$generatedLettersArgs<ExtArgs>
+    cvs?: boolean | User$cvsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1333,6 +1667,9 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     accounts?: boolean | User$accountsArgs<ExtArgs>
     sessions?: boolean | User$sessionsArgs<ExtArgs>
+    jobDescriptions?: boolean | User$jobDescriptionsArgs<ExtArgs>
+    generatedLetters?: boolean | User$generatedLettersArgs<ExtArgs>
+    cvs?: boolean | User$cvsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -1341,6 +1678,9 @@ export namespace Prisma {
     objects: {
       accounts: Prisma.$AccountPayload<ExtArgs>[]
       sessions: Prisma.$SessionPayload<ExtArgs>[]
+      jobDescriptions: Prisma.$JobDescriptionPayload<ExtArgs>[]
+      generatedLetters: Prisma.$GeneratedLetterPayload<ExtArgs>[]
+      cvs: Prisma.$CVPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1716,6 +2056,9 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    jobDescriptions<T extends User$jobDescriptionsArgs<ExtArgs> = {}>(args?: Subset<T, User$jobDescriptionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobDescriptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    generatedLetters<T extends User$generatedLettersArgs<ExtArgs> = {}>(args?: Subset<T, User$generatedLettersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GeneratedLetterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    cvs<T extends User$cvsArgs<ExtArgs> = {}>(args?: Subset<T, User$cvsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CVPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2168,6 +2511,78 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: SessionScalarFieldEnum | SessionScalarFieldEnum[]
+  }
+
+  /**
+   * User.jobDescriptions
+   */
+  export type User$jobDescriptionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobDescription
+     */
+    select?: JobDescriptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobDescription
+     */
+    omit?: JobDescriptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobDescriptionInclude<ExtArgs> | null
+    where?: JobDescriptionWhereInput
+    orderBy?: JobDescriptionOrderByWithRelationInput | JobDescriptionOrderByWithRelationInput[]
+    cursor?: JobDescriptionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JobDescriptionScalarFieldEnum | JobDescriptionScalarFieldEnum[]
+  }
+
+  /**
+   * User.generatedLetters
+   */
+  export type User$generatedLettersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedLetter
+     */
+    select?: GeneratedLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GeneratedLetter
+     */
+    omit?: GeneratedLetterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GeneratedLetterInclude<ExtArgs> | null
+    where?: GeneratedLetterWhereInput
+    orderBy?: GeneratedLetterOrderByWithRelationInput | GeneratedLetterOrderByWithRelationInput[]
+    cursor?: GeneratedLetterWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: GeneratedLetterScalarFieldEnum | GeneratedLetterScalarFieldEnum[]
+  }
+
+  /**
+   * User.cvs
+   */
+  export type User$cvsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CV
+     */
+    select?: CVSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CV
+     */
+    omit?: CVOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CVInclude<ExtArgs> | null
+    where?: CVWhereInput
+    orderBy?: CVOrderByWithRelationInput | CVOrderByWithRelationInput[]
+    cursor?: CVWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CVScalarFieldEnum | CVScalarFieldEnum[]
   }
 
   /**
@@ -5169,6 +5584,3028 @@ export namespace Prisma {
 
 
   /**
+   * Model JobDescription
+   */
+
+  export type AggregateJobDescription = {
+    _count: JobDescriptionCountAggregateOutputType | null
+    _min: JobDescriptionMinAggregateOutputType | null
+    _max: JobDescriptionMaxAggregateOutputType | null
+  }
+
+  export type JobDescriptionMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    text: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type JobDescriptionMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    text: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type JobDescriptionCountAggregateOutputType = {
+    id: number
+    userId: number
+    text: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type JobDescriptionMinAggregateInputType = {
+    id?: true
+    userId?: true
+    text?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type JobDescriptionMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    text?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type JobDescriptionCountAggregateInputType = {
+    id?: true
+    userId?: true
+    text?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type JobDescriptionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JobDescription to aggregate.
+     */
+    where?: JobDescriptionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobDescriptions to fetch.
+     */
+    orderBy?: JobDescriptionOrderByWithRelationInput | JobDescriptionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JobDescriptionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobDescriptions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobDescriptions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned JobDescriptions
+    **/
+    _count?: true | JobDescriptionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JobDescriptionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JobDescriptionMaxAggregateInputType
+  }
+
+  export type GetJobDescriptionAggregateType<T extends JobDescriptionAggregateArgs> = {
+        [P in keyof T & keyof AggregateJobDescription]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJobDescription[P]>
+      : GetScalarType<T[P], AggregateJobDescription[P]>
+  }
+
+
+
+
+  export type JobDescriptionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JobDescriptionWhereInput
+    orderBy?: JobDescriptionOrderByWithAggregationInput | JobDescriptionOrderByWithAggregationInput[]
+    by: JobDescriptionScalarFieldEnum[] | JobDescriptionScalarFieldEnum
+    having?: JobDescriptionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JobDescriptionCountAggregateInputType | true
+    _min?: JobDescriptionMinAggregateInputType
+    _max?: JobDescriptionMaxAggregateInputType
+  }
+
+  export type JobDescriptionGroupByOutputType = {
+    id: string
+    userId: string
+    text: string
+    createdAt: Date
+    updatedAt: Date
+    _count: JobDescriptionCountAggregateOutputType | null
+    _min: JobDescriptionMinAggregateOutputType | null
+    _max: JobDescriptionMaxAggregateOutputType | null
+  }
+
+  type GetJobDescriptionGroupByPayload<T extends JobDescriptionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JobDescriptionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JobDescriptionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JobDescriptionGroupByOutputType[P]>
+            : GetScalarType<T[P], JobDescriptionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JobDescriptionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    text?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    generatedLetters?: boolean | JobDescription$generatedLettersArgs<ExtArgs>
+    _count?: boolean | JobDescriptionCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jobDescription"]>
+
+
+
+  export type JobDescriptionSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    text?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type JobDescriptionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "text" | "createdAt" | "updatedAt", ExtArgs["result"]["jobDescription"]>
+  export type JobDescriptionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    generatedLetters?: boolean | JobDescription$generatedLettersArgs<ExtArgs>
+    _count?: boolean | JobDescriptionCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+  export type $JobDescriptionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "JobDescription"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      generatedLetters: Prisma.$GeneratedLetterPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      text: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["jobDescription"]>
+    composites: {}
+  }
+
+  type JobDescriptionGetPayload<S extends boolean | null | undefined | JobDescriptionDefaultArgs> = $Result.GetResult<Prisma.$JobDescriptionPayload, S>
+
+  type JobDescriptionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JobDescriptionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JobDescriptionCountAggregateInputType | true
+    }
+
+  export interface JobDescriptionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JobDescription'], meta: { name: 'JobDescription' } }
+    /**
+     * Find zero or one JobDescription that matches the filter.
+     * @param {JobDescriptionFindUniqueArgs} args - Arguments to find a JobDescription
+     * @example
+     * // Get one JobDescription
+     * const jobDescription = await prisma.jobDescription.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JobDescriptionFindUniqueArgs>(args: SelectSubset<T, JobDescriptionFindUniqueArgs<ExtArgs>>): Prisma__JobDescriptionClient<$Result.GetResult<Prisma.$JobDescriptionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one JobDescription that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JobDescriptionFindUniqueOrThrowArgs} args - Arguments to find a JobDescription
+     * @example
+     * // Get one JobDescription
+     * const jobDescription = await prisma.jobDescription.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JobDescriptionFindUniqueOrThrowArgs>(args: SelectSubset<T, JobDescriptionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JobDescriptionClient<$Result.GetResult<Prisma.$JobDescriptionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JobDescription that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobDescriptionFindFirstArgs} args - Arguments to find a JobDescription
+     * @example
+     * // Get one JobDescription
+     * const jobDescription = await prisma.jobDescription.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JobDescriptionFindFirstArgs>(args?: SelectSubset<T, JobDescriptionFindFirstArgs<ExtArgs>>): Prisma__JobDescriptionClient<$Result.GetResult<Prisma.$JobDescriptionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JobDescription that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobDescriptionFindFirstOrThrowArgs} args - Arguments to find a JobDescription
+     * @example
+     * // Get one JobDescription
+     * const jobDescription = await prisma.jobDescription.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JobDescriptionFindFirstOrThrowArgs>(args?: SelectSubset<T, JobDescriptionFindFirstOrThrowArgs<ExtArgs>>): Prisma__JobDescriptionClient<$Result.GetResult<Prisma.$JobDescriptionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more JobDescriptions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobDescriptionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all JobDescriptions
+     * const jobDescriptions = await prisma.jobDescription.findMany()
+     * 
+     * // Get first 10 JobDescriptions
+     * const jobDescriptions = await prisma.jobDescription.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const jobDescriptionWithIdOnly = await prisma.jobDescription.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends JobDescriptionFindManyArgs>(args?: SelectSubset<T, JobDescriptionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobDescriptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a JobDescription.
+     * @param {JobDescriptionCreateArgs} args - Arguments to create a JobDescription.
+     * @example
+     * // Create one JobDescription
+     * const JobDescription = await prisma.jobDescription.create({
+     *   data: {
+     *     // ... data to create a JobDescription
+     *   }
+     * })
+     * 
+     */
+    create<T extends JobDescriptionCreateArgs>(args: SelectSubset<T, JobDescriptionCreateArgs<ExtArgs>>): Prisma__JobDescriptionClient<$Result.GetResult<Prisma.$JobDescriptionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many JobDescriptions.
+     * @param {JobDescriptionCreateManyArgs} args - Arguments to create many JobDescriptions.
+     * @example
+     * // Create many JobDescriptions
+     * const jobDescription = await prisma.jobDescription.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JobDescriptionCreateManyArgs>(args?: SelectSubset<T, JobDescriptionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a JobDescription.
+     * @param {JobDescriptionDeleteArgs} args - Arguments to delete one JobDescription.
+     * @example
+     * // Delete one JobDescription
+     * const JobDescription = await prisma.jobDescription.delete({
+     *   where: {
+     *     // ... filter to delete one JobDescription
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JobDescriptionDeleteArgs>(args: SelectSubset<T, JobDescriptionDeleteArgs<ExtArgs>>): Prisma__JobDescriptionClient<$Result.GetResult<Prisma.$JobDescriptionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one JobDescription.
+     * @param {JobDescriptionUpdateArgs} args - Arguments to update one JobDescription.
+     * @example
+     * // Update one JobDescription
+     * const jobDescription = await prisma.jobDescription.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JobDescriptionUpdateArgs>(args: SelectSubset<T, JobDescriptionUpdateArgs<ExtArgs>>): Prisma__JobDescriptionClient<$Result.GetResult<Prisma.$JobDescriptionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more JobDescriptions.
+     * @param {JobDescriptionDeleteManyArgs} args - Arguments to filter JobDescriptions to delete.
+     * @example
+     * // Delete a few JobDescriptions
+     * const { count } = await prisma.jobDescription.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JobDescriptionDeleteManyArgs>(args?: SelectSubset<T, JobDescriptionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JobDescriptions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobDescriptionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many JobDescriptions
+     * const jobDescription = await prisma.jobDescription.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JobDescriptionUpdateManyArgs>(args: SelectSubset<T, JobDescriptionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one JobDescription.
+     * @param {JobDescriptionUpsertArgs} args - Arguments to update or create a JobDescription.
+     * @example
+     * // Update or create a JobDescription
+     * const jobDescription = await prisma.jobDescription.upsert({
+     *   create: {
+     *     // ... data to create a JobDescription
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the JobDescription we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JobDescriptionUpsertArgs>(args: SelectSubset<T, JobDescriptionUpsertArgs<ExtArgs>>): Prisma__JobDescriptionClient<$Result.GetResult<Prisma.$JobDescriptionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more JobDescriptions that matches the filter.
+     * @param {JobDescriptionFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const jobDescription = await prisma.jobDescription.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: JobDescriptionFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a JobDescription.
+     * @param {JobDescriptionAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const jobDescription = await prisma.jobDescription.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: JobDescriptionAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of JobDescriptions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobDescriptionCountArgs} args - Arguments to filter JobDescriptions to count.
+     * @example
+     * // Count the number of JobDescriptions
+     * const count = await prisma.jobDescription.count({
+     *   where: {
+     *     // ... the filter for the JobDescriptions we want to count
+     *   }
+     * })
+    **/
+    count<T extends JobDescriptionCountArgs>(
+      args?: Subset<T, JobDescriptionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JobDescriptionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a JobDescription.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobDescriptionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JobDescriptionAggregateArgs>(args: Subset<T, JobDescriptionAggregateArgs>): Prisma.PrismaPromise<GetJobDescriptionAggregateType<T>>
+
+    /**
+     * Group by JobDescription.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobDescriptionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JobDescriptionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JobDescriptionGroupByArgs['orderBy'] }
+        : { orderBy?: JobDescriptionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JobDescriptionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJobDescriptionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the JobDescription model
+   */
+  readonly fields: JobDescriptionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for JobDescription.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JobDescriptionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    generatedLetters<T extends JobDescription$generatedLettersArgs<ExtArgs> = {}>(args?: Subset<T, JobDescription$generatedLettersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GeneratedLetterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the JobDescription model
+   */
+  interface JobDescriptionFieldRefs {
+    readonly id: FieldRef<"JobDescription", 'String'>
+    readonly userId: FieldRef<"JobDescription", 'String'>
+    readonly text: FieldRef<"JobDescription", 'String'>
+    readonly createdAt: FieldRef<"JobDescription", 'DateTime'>
+    readonly updatedAt: FieldRef<"JobDescription", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * JobDescription findUnique
+   */
+  export type JobDescriptionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobDescription
+     */
+    select?: JobDescriptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobDescription
+     */
+    omit?: JobDescriptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobDescriptionInclude<ExtArgs> | null
+    /**
+     * Filter, which JobDescription to fetch.
+     */
+    where: JobDescriptionWhereUniqueInput
+  }
+
+  /**
+   * JobDescription findUniqueOrThrow
+   */
+  export type JobDescriptionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobDescription
+     */
+    select?: JobDescriptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobDescription
+     */
+    omit?: JobDescriptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobDescriptionInclude<ExtArgs> | null
+    /**
+     * Filter, which JobDescription to fetch.
+     */
+    where: JobDescriptionWhereUniqueInput
+  }
+
+  /**
+   * JobDescription findFirst
+   */
+  export type JobDescriptionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobDescription
+     */
+    select?: JobDescriptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobDescription
+     */
+    omit?: JobDescriptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobDescriptionInclude<ExtArgs> | null
+    /**
+     * Filter, which JobDescription to fetch.
+     */
+    where?: JobDescriptionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobDescriptions to fetch.
+     */
+    orderBy?: JobDescriptionOrderByWithRelationInput | JobDescriptionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JobDescriptions.
+     */
+    cursor?: JobDescriptionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobDescriptions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobDescriptions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JobDescriptions.
+     */
+    distinct?: JobDescriptionScalarFieldEnum | JobDescriptionScalarFieldEnum[]
+  }
+
+  /**
+   * JobDescription findFirstOrThrow
+   */
+  export type JobDescriptionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobDescription
+     */
+    select?: JobDescriptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobDescription
+     */
+    omit?: JobDescriptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobDescriptionInclude<ExtArgs> | null
+    /**
+     * Filter, which JobDescription to fetch.
+     */
+    where?: JobDescriptionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobDescriptions to fetch.
+     */
+    orderBy?: JobDescriptionOrderByWithRelationInput | JobDescriptionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JobDescriptions.
+     */
+    cursor?: JobDescriptionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobDescriptions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobDescriptions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JobDescriptions.
+     */
+    distinct?: JobDescriptionScalarFieldEnum | JobDescriptionScalarFieldEnum[]
+  }
+
+  /**
+   * JobDescription findMany
+   */
+  export type JobDescriptionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobDescription
+     */
+    select?: JobDescriptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobDescription
+     */
+    omit?: JobDescriptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobDescriptionInclude<ExtArgs> | null
+    /**
+     * Filter, which JobDescriptions to fetch.
+     */
+    where?: JobDescriptionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobDescriptions to fetch.
+     */
+    orderBy?: JobDescriptionOrderByWithRelationInput | JobDescriptionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing JobDescriptions.
+     */
+    cursor?: JobDescriptionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobDescriptions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobDescriptions.
+     */
+    skip?: number
+    distinct?: JobDescriptionScalarFieldEnum | JobDescriptionScalarFieldEnum[]
+  }
+
+  /**
+   * JobDescription create
+   */
+  export type JobDescriptionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobDescription
+     */
+    select?: JobDescriptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobDescription
+     */
+    omit?: JobDescriptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobDescriptionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a JobDescription.
+     */
+    data: XOR<JobDescriptionCreateInput, JobDescriptionUncheckedCreateInput>
+  }
+
+  /**
+   * JobDescription createMany
+   */
+  export type JobDescriptionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many JobDescriptions.
+     */
+    data: JobDescriptionCreateManyInput | JobDescriptionCreateManyInput[]
+  }
+
+  /**
+   * JobDescription update
+   */
+  export type JobDescriptionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobDescription
+     */
+    select?: JobDescriptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobDescription
+     */
+    omit?: JobDescriptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobDescriptionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a JobDescription.
+     */
+    data: XOR<JobDescriptionUpdateInput, JobDescriptionUncheckedUpdateInput>
+    /**
+     * Choose, which JobDescription to update.
+     */
+    where: JobDescriptionWhereUniqueInput
+  }
+
+  /**
+   * JobDescription updateMany
+   */
+  export type JobDescriptionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update JobDescriptions.
+     */
+    data: XOR<JobDescriptionUpdateManyMutationInput, JobDescriptionUncheckedUpdateManyInput>
+    /**
+     * Filter which JobDescriptions to update
+     */
+    where?: JobDescriptionWhereInput
+    /**
+     * Limit how many JobDescriptions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JobDescription upsert
+   */
+  export type JobDescriptionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobDescription
+     */
+    select?: JobDescriptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobDescription
+     */
+    omit?: JobDescriptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobDescriptionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the JobDescription to update in case it exists.
+     */
+    where: JobDescriptionWhereUniqueInput
+    /**
+     * In case the JobDescription found by the `where` argument doesn't exist, create a new JobDescription with this data.
+     */
+    create: XOR<JobDescriptionCreateInput, JobDescriptionUncheckedCreateInput>
+    /**
+     * In case the JobDescription was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JobDescriptionUpdateInput, JobDescriptionUncheckedUpdateInput>
+  }
+
+  /**
+   * JobDescription delete
+   */
+  export type JobDescriptionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobDescription
+     */
+    select?: JobDescriptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobDescription
+     */
+    omit?: JobDescriptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobDescriptionInclude<ExtArgs> | null
+    /**
+     * Filter which JobDescription to delete.
+     */
+    where: JobDescriptionWhereUniqueInput
+  }
+
+  /**
+   * JobDescription deleteMany
+   */
+  export type JobDescriptionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JobDescriptions to delete
+     */
+    where?: JobDescriptionWhereInput
+    /**
+     * Limit how many JobDescriptions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * JobDescription findRaw
+   */
+  export type JobDescriptionFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * JobDescription aggregateRaw
+   */
+  export type JobDescriptionAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * JobDescription.generatedLetters
+   */
+  export type JobDescription$generatedLettersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedLetter
+     */
+    select?: GeneratedLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GeneratedLetter
+     */
+    omit?: GeneratedLetterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GeneratedLetterInclude<ExtArgs> | null
+    where?: GeneratedLetterWhereInput
+    orderBy?: GeneratedLetterOrderByWithRelationInput | GeneratedLetterOrderByWithRelationInput[]
+    cursor?: GeneratedLetterWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: GeneratedLetterScalarFieldEnum | GeneratedLetterScalarFieldEnum[]
+  }
+
+  /**
+   * JobDescription without action
+   */
+  export type JobDescriptionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobDescription
+     */
+    select?: JobDescriptionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobDescription
+     */
+    omit?: JobDescriptionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobDescriptionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CV
+   */
+
+  export type AggregateCV = {
+    _count: CVCountAggregateOutputType | null
+    _min: CVMinAggregateOutputType | null
+    _max: CVMaxAggregateOutputType | null
+  }
+
+  export type CVMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    fileName: string | null
+    fileType: string | null
+    content: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CVMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    fileName: string | null
+    fileType: string | null
+    content: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CVCountAggregateOutputType = {
+    id: number
+    userId: number
+    fileName: number
+    fileType: number
+    content: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type CVMinAggregateInputType = {
+    id?: true
+    userId?: true
+    fileName?: true
+    fileType?: true
+    content?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CVMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    fileName?: true
+    fileType?: true
+    content?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CVCountAggregateInputType = {
+    id?: true
+    userId?: true
+    fileName?: true
+    fileType?: true
+    content?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type CVAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CV to aggregate.
+     */
+    where?: CVWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CVS to fetch.
+     */
+    orderBy?: CVOrderByWithRelationInput | CVOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CVWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CVS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CVS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CVS
+    **/
+    _count?: true | CVCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CVMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CVMaxAggregateInputType
+  }
+
+  export type GetCVAggregateType<T extends CVAggregateArgs> = {
+        [P in keyof T & keyof AggregateCV]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCV[P]>
+      : GetScalarType<T[P], AggregateCV[P]>
+  }
+
+
+
+
+  export type CVGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CVWhereInput
+    orderBy?: CVOrderByWithAggregationInput | CVOrderByWithAggregationInput[]
+    by: CVScalarFieldEnum[] | CVScalarFieldEnum
+    having?: CVScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CVCountAggregateInputType | true
+    _min?: CVMinAggregateInputType
+    _max?: CVMaxAggregateInputType
+  }
+
+  export type CVGroupByOutputType = {
+    id: string
+    userId: string
+    fileName: string
+    fileType: string
+    content: string
+    createdAt: Date
+    updatedAt: Date
+    _count: CVCountAggregateOutputType | null
+    _min: CVMinAggregateOutputType | null
+    _max: CVMaxAggregateOutputType | null
+  }
+
+  type GetCVGroupByPayload<T extends CVGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CVGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CVGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CVGroupByOutputType[P]>
+            : GetScalarType<T[P], CVGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CVSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    fileName?: boolean
+    fileType?: boolean
+    content?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["cV"]>
+
+
+
+  export type CVSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    fileName?: boolean
+    fileType?: boolean
+    content?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type CVOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "fileName" | "fileType" | "content" | "createdAt" | "updatedAt", ExtArgs["result"]["cV"]>
+  export type CVInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $CVPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CV"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      fileName: string
+      fileType: string
+      content: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["cV"]>
+    composites: {}
+  }
+
+  type CVGetPayload<S extends boolean | null | undefined | CVDefaultArgs> = $Result.GetResult<Prisma.$CVPayload, S>
+
+  type CVCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CVFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CVCountAggregateInputType | true
+    }
+
+  export interface CVDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CV'], meta: { name: 'CV' } }
+    /**
+     * Find zero or one CV that matches the filter.
+     * @param {CVFindUniqueArgs} args - Arguments to find a CV
+     * @example
+     * // Get one CV
+     * const cV = await prisma.cV.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CVFindUniqueArgs>(args: SelectSubset<T, CVFindUniqueArgs<ExtArgs>>): Prisma__CVClient<$Result.GetResult<Prisma.$CVPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CV that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CVFindUniqueOrThrowArgs} args - Arguments to find a CV
+     * @example
+     * // Get one CV
+     * const cV = await prisma.cV.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CVFindUniqueOrThrowArgs>(args: SelectSubset<T, CVFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CVClient<$Result.GetResult<Prisma.$CVPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CV that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CVFindFirstArgs} args - Arguments to find a CV
+     * @example
+     * // Get one CV
+     * const cV = await prisma.cV.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CVFindFirstArgs>(args?: SelectSubset<T, CVFindFirstArgs<ExtArgs>>): Prisma__CVClient<$Result.GetResult<Prisma.$CVPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CV that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CVFindFirstOrThrowArgs} args - Arguments to find a CV
+     * @example
+     * // Get one CV
+     * const cV = await prisma.cV.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CVFindFirstOrThrowArgs>(args?: SelectSubset<T, CVFindFirstOrThrowArgs<ExtArgs>>): Prisma__CVClient<$Result.GetResult<Prisma.$CVPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CVS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CVFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CVS
+     * const cVS = await prisma.cV.findMany()
+     * 
+     * // Get first 10 CVS
+     * const cVS = await prisma.cV.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const cVWithIdOnly = await prisma.cV.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CVFindManyArgs>(args?: SelectSubset<T, CVFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CVPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CV.
+     * @param {CVCreateArgs} args - Arguments to create a CV.
+     * @example
+     * // Create one CV
+     * const CV = await prisma.cV.create({
+     *   data: {
+     *     // ... data to create a CV
+     *   }
+     * })
+     * 
+     */
+    create<T extends CVCreateArgs>(args: SelectSubset<T, CVCreateArgs<ExtArgs>>): Prisma__CVClient<$Result.GetResult<Prisma.$CVPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CVS.
+     * @param {CVCreateManyArgs} args - Arguments to create many CVS.
+     * @example
+     * // Create many CVS
+     * const cV = await prisma.cV.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CVCreateManyArgs>(args?: SelectSubset<T, CVCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a CV.
+     * @param {CVDeleteArgs} args - Arguments to delete one CV.
+     * @example
+     * // Delete one CV
+     * const CV = await prisma.cV.delete({
+     *   where: {
+     *     // ... filter to delete one CV
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CVDeleteArgs>(args: SelectSubset<T, CVDeleteArgs<ExtArgs>>): Prisma__CVClient<$Result.GetResult<Prisma.$CVPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CV.
+     * @param {CVUpdateArgs} args - Arguments to update one CV.
+     * @example
+     * // Update one CV
+     * const cV = await prisma.cV.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CVUpdateArgs>(args: SelectSubset<T, CVUpdateArgs<ExtArgs>>): Prisma__CVClient<$Result.GetResult<Prisma.$CVPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CVS.
+     * @param {CVDeleteManyArgs} args - Arguments to filter CVS to delete.
+     * @example
+     * // Delete a few CVS
+     * const { count } = await prisma.cV.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CVDeleteManyArgs>(args?: SelectSubset<T, CVDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CVS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CVUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CVS
+     * const cV = await prisma.cV.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CVUpdateManyArgs>(args: SelectSubset<T, CVUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one CV.
+     * @param {CVUpsertArgs} args - Arguments to update or create a CV.
+     * @example
+     * // Update or create a CV
+     * const cV = await prisma.cV.upsert({
+     *   create: {
+     *     // ... data to create a CV
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CV we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CVUpsertArgs>(args: SelectSubset<T, CVUpsertArgs<ExtArgs>>): Prisma__CVClient<$Result.GetResult<Prisma.$CVPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CVS that matches the filter.
+     * @param {CVFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const cV = await prisma.cV.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: CVFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a CV.
+     * @param {CVAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const cV = await prisma.cV.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: CVAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of CVS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CVCountArgs} args - Arguments to filter CVS to count.
+     * @example
+     * // Count the number of CVS
+     * const count = await prisma.cV.count({
+     *   where: {
+     *     // ... the filter for the CVS we want to count
+     *   }
+     * })
+    **/
+    count<T extends CVCountArgs>(
+      args?: Subset<T, CVCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CVCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CV.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CVAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CVAggregateArgs>(args: Subset<T, CVAggregateArgs>): Prisma.PrismaPromise<GetCVAggregateType<T>>
+
+    /**
+     * Group by CV.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CVGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CVGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CVGroupByArgs['orderBy'] }
+        : { orderBy?: CVGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CVGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCVGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CV model
+   */
+  readonly fields: CVFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CV.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CVClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CV model
+   */
+  interface CVFieldRefs {
+    readonly id: FieldRef<"CV", 'String'>
+    readonly userId: FieldRef<"CV", 'String'>
+    readonly fileName: FieldRef<"CV", 'String'>
+    readonly fileType: FieldRef<"CV", 'String'>
+    readonly content: FieldRef<"CV", 'String'>
+    readonly createdAt: FieldRef<"CV", 'DateTime'>
+    readonly updatedAt: FieldRef<"CV", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CV findUnique
+   */
+  export type CVFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CV
+     */
+    select?: CVSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CV
+     */
+    omit?: CVOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CVInclude<ExtArgs> | null
+    /**
+     * Filter, which CV to fetch.
+     */
+    where: CVWhereUniqueInput
+  }
+
+  /**
+   * CV findUniqueOrThrow
+   */
+  export type CVFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CV
+     */
+    select?: CVSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CV
+     */
+    omit?: CVOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CVInclude<ExtArgs> | null
+    /**
+     * Filter, which CV to fetch.
+     */
+    where: CVWhereUniqueInput
+  }
+
+  /**
+   * CV findFirst
+   */
+  export type CVFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CV
+     */
+    select?: CVSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CV
+     */
+    omit?: CVOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CVInclude<ExtArgs> | null
+    /**
+     * Filter, which CV to fetch.
+     */
+    where?: CVWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CVS to fetch.
+     */
+    orderBy?: CVOrderByWithRelationInput | CVOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CVS.
+     */
+    cursor?: CVWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CVS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CVS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CVS.
+     */
+    distinct?: CVScalarFieldEnum | CVScalarFieldEnum[]
+  }
+
+  /**
+   * CV findFirstOrThrow
+   */
+  export type CVFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CV
+     */
+    select?: CVSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CV
+     */
+    omit?: CVOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CVInclude<ExtArgs> | null
+    /**
+     * Filter, which CV to fetch.
+     */
+    where?: CVWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CVS to fetch.
+     */
+    orderBy?: CVOrderByWithRelationInput | CVOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CVS.
+     */
+    cursor?: CVWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CVS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CVS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CVS.
+     */
+    distinct?: CVScalarFieldEnum | CVScalarFieldEnum[]
+  }
+
+  /**
+   * CV findMany
+   */
+  export type CVFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CV
+     */
+    select?: CVSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CV
+     */
+    omit?: CVOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CVInclude<ExtArgs> | null
+    /**
+     * Filter, which CVS to fetch.
+     */
+    where?: CVWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CVS to fetch.
+     */
+    orderBy?: CVOrderByWithRelationInput | CVOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CVS.
+     */
+    cursor?: CVWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CVS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CVS.
+     */
+    skip?: number
+    distinct?: CVScalarFieldEnum | CVScalarFieldEnum[]
+  }
+
+  /**
+   * CV create
+   */
+  export type CVCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CV
+     */
+    select?: CVSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CV
+     */
+    omit?: CVOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CVInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CV.
+     */
+    data: XOR<CVCreateInput, CVUncheckedCreateInput>
+  }
+
+  /**
+   * CV createMany
+   */
+  export type CVCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CVS.
+     */
+    data: CVCreateManyInput | CVCreateManyInput[]
+  }
+
+  /**
+   * CV update
+   */
+  export type CVUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CV
+     */
+    select?: CVSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CV
+     */
+    omit?: CVOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CVInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CV.
+     */
+    data: XOR<CVUpdateInput, CVUncheckedUpdateInput>
+    /**
+     * Choose, which CV to update.
+     */
+    where: CVWhereUniqueInput
+  }
+
+  /**
+   * CV updateMany
+   */
+  export type CVUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CVS.
+     */
+    data: XOR<CVUpdateManyMutationInput, CVUncheckedUpdateManyInput>
+    /**
+     * Filter which CVS to update
+     */
+    where?: CVWhereInput
+    /**
+     * Limit how many CVS to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CV upsert
+   */
+  export type CVUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CV
+     */
+    select?: CVSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CV
+     */
+    omit?: CVOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CVInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CV to update in case it exists.
+     */
+    where: CVWhereUniqueInput
+    /**
+     * In case the CV found by the `where` argument doesn't exist, create a new CV with this data.
+     */
+    create: XOR<CVCreateInput, CVUncheckedCreateInput>
+    /**
+     * In case the CV was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CVUpdateInput, CVUncheckedUpdateInput>
+  }
+
+  /**
+   * CV delete
+   */
+  export type CVDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CV
+     */
+    select?: CVSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CV
+     */
+    omit?: CVOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CVInclude<ExtArgs> | null
+    /**
+     * Filter which CV to delete.
+     */
+    where: CVWhereUniqueInput
+  }
+
+  /**
+   * CV deleteMany
+   */
+  export type CVDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CVS to delete
+     */
+    where?: CVWhereInput
+    /**
+     * Limit how many CVS to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CV findRaw
+   */
+  export type CVFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * CV aggregateRaw
+   */
+  export type CVAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * CV without action
+   */
+  export type CVDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CV
+     */
+    select?: CVSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CV
+     */
+    omit?: CVOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CVInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model GeneratedLetter
+   */
+
+  export type AggregateGeneratedLetter = {
+    _count: GeneratedLetterCountAggregateOutputType | null
+    _min: GeneratedLetterMinAggregateOutputType | null
+    _max: GeneratedLetterMaxAggregateOutputType | null
+  }
+
+  export type GeneratedLetterMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    jobDescriptionId: string | null
+    cvId: string | null
+    content: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type GeneratedLetterMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    jobDescriptionId: string | null
+    cvId: string | null
+    content: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type GeneratedLetterCountAggregateOutputType = {
+    id: number
+    userId: number
+    jobDescriptionId: number
+    cvId: number
+    content: number
+    suggestions: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type GeneratedLetterMinAggregateInputType = {
+    id?: true
+    userId?: true
+    jobDescriptionId?: true
+    cvId?: true
+    content?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type GeneratedLetterMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    jobDescriptionId?: true
+    cvId?: true
+    content?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type GeneratedLetterCountAggregateInputType = {
+    id?: true
+    userId?: true
+    jobDescriptionId?: true
+    cvId?: true
+    content?: true
+    suggestions?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type GeneratedLetterAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GeneratedLetter to aggregate.
+     */
+    where?: GeneratedLetterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GeneratedLetters to fetch.
+     */
+    orderBy?: GeneratedLetterOrderByWithRelationInput | GeneratedLetterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: GeneratedLetterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GeneratedLetters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GeneratedLetters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned GeneratedLetters
+    **/
+    _count?: true | GeneratedLetterCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: GeneratedLetterMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: GeneratedLetterMaxAggregateInputType
+  }
+
+  export type GetGeneratedLetterAggregateType<T extends GeneratedLetterAggregateArgs> = {
+        [P in keyof T & keyof AggregateGeneratedLetter]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateGeneratedLetter[P]>
+      : GetScalarType<T[P], AggregateGeneratedLetter[P]>
+  }
+
+
+
+
+  export type GeneratedLetterGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GeneratedLetterWhereInput
+    orderBy?: GeneratedLetterOrderByWithAggregationInput | GeneratedLetterOrderByWithAggregationInput[]
+    by: GeneratedLetterScalarFieldEnum[] | GeneratedLetterScalarFieldEnum
+    having?: GeneratedLetterScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: GeneratedLetterCountAggregateInputType | true
+    _min?: GeneratedLetterMinAggregateInputType
+    _max?: GeneratedLetterMaxAggregateInputType
+  }
+
+  export type GeneratedLetterGroupByOutputType = {
+    id: string
+    userId: string
+    jobDescriptionId: string
+    cvId: string | null
+    content: string
+    suggestions: string[]
+    createdAt: Date
+    updatedAt: Date
+    _count: GeneratedLetterCountAggregateOutputType | null
+    _min: GeneratedLetterMinAggregateOutputType | null
+    _max: GeneratedLetterMaxAggregateOutputType | null
+  }
+
+  type GetGeneratedLetterGroupByPayload<T extends GeneratedLetterGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<GeneratedLetterGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof GeneratedLetterGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], GeneratedLetterGroupByOutputType[P]>
+            : GetScalarType<T[P], GeneratedLetterGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type GeneratedLetterSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    jobDescriptionId?: boolean
+    cvId?: boolean
+    content?: boolean
+    suggestions?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    jobDescription?: boolean | JobDescriptionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["generatedLetter"]>
+
+
+
+  export type GeneratedLetterSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    jobDescriptionId?: boolean
+    cvId?: boolean
+    content?: boolean
+    suggestions?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type GeneratedLetterOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "jobDescriptionId" | "cvId" | "content" | "suggestions" | "createdAt" | "updatedAt", ExtArgs["result"]["generatedLetter"]>
+  export type GeneratedLetterInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    jobDescription?: boolean | JobDescriptionDefaultArgs<ExtArgs>
+  }
+
+  export type $GeneratedLetterPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "GeneratedLetter"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      jobDescription: Prisma.$JobDescriptionPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      jobDescriptionId: string
+      cvId: string | null
+      content: string
+      suggestions: string[]
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["generatedLetter"]>
+    composites: {}
+  }
+
+  type GeneratedLetterGetPayload<S extends boolean | null | undefined | GeneratedLetterDefaultArgs> = $Result.GetResult<Prisma.$GeneratedLetterPayload, S>
+
+  type GeneratedLetterCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<GeneratedLetterFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: GeneratedLetterCountAggregateInputType | true
+    }
+
+  export interface GeneratedLetterDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['GeneratedLetter'], meta: { name: 'GeneratedLetter' } }
+    /**
+     * Find zero or one GeneratedLetter that matches the filter.
+     * @param {GeneratedLetterFindUniqueArgs} args - Arguments to find a GeneratedLetter
+     * @example
+     * // Get one GeneratedLetter
+     * const generatedLetter = await prisma.generatedLetter.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends GeneratedLetterFindUniqueArgs>(args: SelectSubset<T, GeneratedLetterFindUniqueArgs<ExtArgs>>): Prisma__GeneratedLetterClient<$Result.GetResult<Prisma.$GeneratedLetterPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one GeneratedLetter that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {GeneratedLetterFindUniqueOrThrowArgs} args - Arguments to find a GeneratedLetter
+     * @example
+     * // Get one GeneratedLetter
+     * const generatedLetter = await prisma.generatedLetter.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends GeneratedLetterFindUniqueOrThrowArgs>(args: SelectSubset<T, GeneratedLetterFindUniqueOrThrowArgs<ExtArgs>>): Prisma__GeneratedLetterClient<$Result.GetResult<Prisma.$GeneratedLetterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GeneratedLetter that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GeneratedLetterFindFirstArgs} args - Arguments to find a GeneratedLetter
+     * @example
+     * // Get one GeneratedLetter
+     * const generatedLetter = await prisma.generatedLetter.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends GeneratedLetterFindFirstArgs>(args?: SelectSubset<T, GeneratedLetterFindFirstArgs<ExtArgs>>): Prisma__GeneratedLetterClient<$Result.GetResult<Prisma.$GeneratedLetterPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first GeneratedLetter that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GeneratedLetterFindFirstOrThrowArgs} args - Arguments to find a GeneratedLetter
+     * @example
+     * // Get one GeneratedLetter
+     * const generatedLetter = await prisma.generatedLetter.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends GeneratedLetterFindFirstOrThrowArgs>(args?: SelectSubset<T, GeneratedLetterFindFirstOrThrowArgs<ExtArgs>>): Prisma__GeneratedLetterClient<$Result.GetResult<Prisma.$GeneratedLetterPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more GeneratedLetters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GeneratedLetterFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all GeneratedLetters
+     * const generatedLetters = await prisma.generatedLetter.findMany()
+     * 
+     * // Get first 10 GeneratedLetters
+     * const generatedLetters = await prisma.generatedLetter.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const generatedLetterWithIdOnly = await prisma.generatedLetter.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends GeneratedLetterFindManyArgs>(args?: SelectSubset<T, GeneratedLetterFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GeneratedLetterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a GeneratedLetter.
+     * @param {GeneratedLetterCreateArgs} args - Arguments to create a GeneratedLetter.
+     * @example
+     * // Create one GeneratedLetter
+     * const GeneratedLetter = await prisma.generatedLetter.create({
+     *   data: {
+     *     // ... data to create a GeneratedLetter
+     *   }
+     * })
+     * 
+     */
+    create<T extends GeneratedLetterCreateArgs>(args: SelectSubset<T, GeneratedLetterCreateArgs<ExtArgs>>): Prisma__GeneratedLetterClient<$Result.GetResult<Prisma.$GeneratedLetterPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many GeneratedLetters.
+     * @param {GeneratedLetterCreateManyArgs} args - Arguments to create many GeneratedLetters.
+     * @example
+     * // Create many GeneratedLetters
+     * const generatedLetter = await prisma.generatedLetter.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends GeneratedLetterCreateManyArgs>(args?: SelectSubset<T, GeneratedLetterCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a GeneratedLetter.
+     * @param {GeneratedLetterDeleteArgs} args - Arguments to delete one GeneratedLetter.
+     * @example
+     * // Delete one GeneratedLetter
+     * const GeneratedLetter = await prisma.generatedLetter.delete({
+     *   where: {
+     *     // ... filter to delete one GeneratedLetter
+     *   }
+     * })
+     * 
+     */
+    delete<T extends GeneratedLetterDeleteArgs>(args: SelectSubset<T, GeneratedLetterDeleteArgs<ExtArgs>>): Prisma__GeneratedLetterClient<$Result.GetResult<Prisma.$GeneratedLetterPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one GeneratedLetter.
+     * @param {GeneratedLetterUpdateArgs} args - Arguments to update one GeneratedLetter.
+     * @example
+     * // Update one GeneratedLetter
+     * const generatedLetter = await prisma.generatedLetter.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends GeneratedLetterUpdateArgs>(args: SelectSubset<T, GeneratedLetterUpdateArgs<ExtArgs>>): Prisma__GeneratedLetterClient<$Result.GetResult<Prisma.$GeneratedLetterPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more GeneratedLetters.
+     * @param {GeneratedLetterDeleteManyArgs} args - Arguments to filter GeneratedLetters to delete.
+     * @example
+     * // Delete a few GeneratedLetters
+     * const { count } = await prisma.generatedLetter.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends GeneratedLetterDeleteManyArgs>(args?: SelectSubset<T, GeneratedLetterDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more GeneratedLetters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GeneratedLetterUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many GeneratedLetters
+     * const generatedLetter = await prisma.generatedLetter.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends GeneratedLetterUpdateManyArgs>(args: SelectSubset<T, GeneratedLetterUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one GeneratedLetter.
+     * @param {GeneratedLetterUpsertArgs} args - Arguments to update or create a GeneratedLetter.
+     * @example
+     * // Update or create a GeneratedLetter
+     * const generatedLetter = await prisma.generatedLetter.upsert({
+     *   create: {
+     *     // ... data to create a GeneratedLetter
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the GeneratedLetter we want to update
+     *   }
+     * })
+     */
+    upsert<T extends GeneratedLetterUpsertArgs>(args: SelectSubset<T, GeneratedLetterUpsertArgs<ExtArgs>>): Prisma__GeneratedLetterClient<$Result.GetResult<Prisma.$GeneratedLetterPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more GeneratedLetters that matches the filter.
+     * @param {GeneratedLetterFindRawArgs} args - Select which filters you would like to apply.
+     * @example
+     * const generatedLetter = await prisma.generatedLetter.findRaw({
+     *   filter: { age: { $gt: 25 } }
+     * })
+     */
+    findRaw(args?: GeneratedLetterFindRawArgs): Prisma.PrismaPromise<JsonObject>
+
+    /**
+     * Perform aggregation operations on a GeneratedLetter.
+     * @param {GeneratedLetterAggregateRawArgs} args - Select which aggregations you would like to apply.
+     * @example
+     * const generatedLetter = await prisma.generatedLetter.aggregateRaw({
+     *   pipeline: [
+     *     { $match: { status: "registered" } },
+     *     { $group: { _id: "$country", total: { $sum: 1 } } }
+     *   ]
+     * })
+     */
+    aggregateRaw(args?: GeneratedLetterAggregateRawArgs): Prisma.PrismaPromise<JsonObject>
+
+
+    /**
+     * Count the number of GeneratedLetters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GeneratedLetterCountArgs} args - Arguments to filter GeneratedLetters to count.
+     * @example
+     * // Count the number of GeneratedLetters
+     * const count = await prisma.generatedLetter.count({
+     *   where: {
+     *     // ... the filter for the GeneratedLetters we want to count
+     *   }
+     * })
+    **/
+    count<T extends GeneratedLetterCountArgs>(
+      args?: Subset<T, GeneratedLetterCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], GeneratedLetterCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a GeneratedLetter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GeneratedLetterAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends GeneratedLetterAggregateArgs>(args: Subset<T, GeneratedLetterAggregateArgs>): Prisma.PrismaPromise<GetGeneratedLetterAggregateType<T>>
+
+    /**
+     * Group by GeneratedLetter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GeneratedLetterGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends GeneratedLetterGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: GeneratedLetterGroupByArgs['orderBy'] }
+        : { orderBy?: GeneratedLetterGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, GeneratedLetterGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGeneratedLetterGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the GeneratedLetter model
+   */
+  readonly fields: GeneratedLetterFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for GeneratedLetter.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__GeneratedLetterClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    jobDescription<T extends JobDescriptionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, JobDescriptionDefaultArgs<ExtArgs>>): Prisma__JobDescriptionClient<$Result.GetResult<Prisma.$JobDescriptionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the GeneratedLetter model
+   */
+  interface GeneratedLetterFieldRefs {
+    readonly id: FieldRef<"GeneratedLetter", 'String'>
+    readonly userId: FieldRef<"GeneratedLetter", 'String'>
+    readonly jobDescriptionId: FieldRef<"GeneratedLetter", 'String'>
+    readonly cvId: FieldRef<"GeneratedLetter", 'String'>
+    readonly content: FieldRef<"GeneratedLetter", 'String'>
+    readonly suggestions: FieldRef<"GeneratedLetter", 'String[]'>
+    readonly createdAt: FieldRef<"GeneratedLetter", 'DateTime'>
+    readonly updatedAt: FieldRef<"GeneratedLetter", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * GeneratedLetter findUnique
+   */
+  export type GeneratedLetterFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedLetter
+     */
+    select?: GeneratedLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GeneratedLetter
+     */
+    omit?: GeneratedLetterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GeneratedLetterInclude<ExtArgs> | null
+    /**
+     * Filter, which GeneratedLetter to fetch.
+     */
+    where: GeneratedLetterWhereUniqueInput
+  }
+
+  /**
+   * GeneratedLetter findUniqueOrThrow
+   */
+  export type GeneratedLetterFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedLetter
+     */
+    select?: GeneratedLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GeneratedLetter
+     */
+    omit?: GeneratedLetterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GeneratedLetterInclude<ExtArgs> | null
+    /**
+     * Filter, which GeneratedLetter to fetch.
+     */
+    where: GeneratedLetterWhereUniqueInput
+  }
+
+  /**
+   * GeneratedLetter findFirst
+   */
+  export type GeneratedLetterFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedLetter
+     */
+    select?: GeneratedLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GeneratedLetter
+     */
+    omit?: GeneratedLetterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GeneratedLetterInclude<ExtArgs> | null
+    /**
+     * Filter, which GeneratedLetter to fetch.
+     */
+    where?: GeneratedLetterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GeneratedLetters to fetch.
+     */
+    orderBy?: GeneratedLetterOrderByWithRelationInput | GeneratedLetterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GeneratedLetters.
+     */
+    cursor?: GeneratedLetterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GeneratedLetters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GeneratedLetters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GeneratedLetters.
+     */
+    distinct?: GeneratedLetterScalarFieldEnum | GeneratedLetterScalarFieldEnum[]
+  }
+
+  /**
+   * GeneratedLetter findFirstOrThrow
+   */
+  export type GeneratedLetterFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedLetter
+     */
+    select?: GeneratedLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GeneratedLetter
+     */
+    omit?: GeneratedLetterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GeneratedLetterInclude<ExtArgs> | null
+    /**
+     * Filter, which GeneratedLetter to fetch.
+     */
+    where?: GeneratedLetterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GeneratedLetters to fetch.
+     */
+    orderBy?: GeneratedLetterOrderByWithRelationInput | GeneratedLetterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for GeneratedLetters.
+     */
+    cursor?: GeneratedLetterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GeneratedLetters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GeneratedLetters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of GeneratedLetters.
+     */
+    distinct?: GeneratedLetterScalarFieldEnum | GeneratedLetterScalarFieldEnum[]
+  }
+
+  /**
+   * GeneratedLetter findMany
+   */
+  export type GeneratedLetterFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedLetter
+     */
+    select?: GeneratedLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GeneratedLetter
+     */
+    omit?: GeneratedLetterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GeneratedLetterInclude<ExtArgs> | null
+    /**
+     * Filter, which GeneratedLetters to fetch.
+     */
+    where?: GeneratedLetterWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of GeneratedLetters to fetch.
+     */
+    orderBy?: GeneratedLetterOrderByWithRelationInput | GeneratedLetterOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing GeneratedLetters.
+     */
+    cursor?: GeneratedLetterWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` GeneratedLetters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` GeneratedLetters.
+     */
+    skip?: number
+    distinct?: GeneratedLetterScalarFieldEnum | GeneratedLetterScalarFieldEnum[]
+  }
+
+  /**
+   * GeneratedLetter create
+   */
+  export type GeneratedLetterCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedLetter
+     */
+    select?: GeneratedLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GeneratedLetter
+     */
+    omit?: GeneratedLetterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GeneratedLetterInclude<ExtArgs> | null
+    /**
+     * The data needed to create a GeneratedLetter.
+     */
+    data: XOR<GeneratedLetterCreateInput, GeneratedLetterUncheckedCreateInput>
+  }
+
+  /**
+   * GeneratedLetter createMany
+   */
+  export type GeneratedLetterCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many GeneratedLetters.
+     */
+    data: GeneratedLetterCreateManyInput | GeneratedLetterCreateManyInput[]
+  }
+
+  /**
+   * GeneratedLetter update
+   */
+  export type GeneratedLetterUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedLetter
+     */
+    select?: GeneratedLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GeneratedLetter
+     */
+    omit?: GeneratedLetterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GeneratedLetterInclude<ExtArgs> | null
+    /**
+     * The data needed to update a GeneratedLetter.
+     */
+    data: XOR<GeneratedLetterUpdateInput, GeneratedLetterUncheckedUpdateInput>
+    /**
+     * Choose, which GeneratedLetter to update.
+     */
+    where: GeneratedLetterWhereUniqueInput
+  }
+
+  /**
+   * GeneratedLetter updateMany
+   */
+  export type GeneratedLetterUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update GeneratedLetters.
+     */
+    data: XOR<GeneratedLetterUpdateManyMutationInput, GeneratedLetterUncheckedUpdateManyInput>
+    /**
+     * Filter which GeneratedLetters to update
+     */
+    where?: GeneratedLetterWhereInput
+    /**
+     * Limit how many GeneratedLetters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * GeneratedLetter upsert
+   */
+  export type GeneratedLetterUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedLetter
+     */
+    select?: GeneratedLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GeneratedLetter
+     */
+    omit?: GeneratedLetterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GeneratedLetterInclude<ExtArgs> | null
+    /**
+     * The filter to search for the GeneratedLetter to update in case it exists.
+     */
+    where: GeneratedLetterWhereUniqueInput
+    /**
+     * In case the GeneratedLetter found by the `where` argument doesn't exist, create a new GeneratedLetter with this data.
+     */
+    create: XOR<GeneratedLetterCreateInput, GeneratedLetterUncheckedCreateInput>
+    /**
+     * In case the GeneratedLetter was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<GeneratedLetterUpdateInput, GeneratedLetterUncheckedUpdateInput>
+  }
+
+  /**
+   * GeneratedLetter delete
+   */
+  export type GeneratedLetterDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedLetter
+     */
+    select?: GeneratedLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GeneratedLetter
+     */
+    omit?: GeneratedLetterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GeneratedLetterInclude<ExtArgs> | null
+    /**
+     * Filter which GeneratedLetter to delete.
+     */
+    where: GeneratedLetterWhereUniqueInput
+  }
+
+  /**
+   * GeneratedLetter deleteMany
+   */
+  export type GeneratedLetterDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which GeneratedLetters to delete
+     */
+    where?: GeneratedLetterWhereInput
+    /**
+     * Limit how many GeneratedLetters to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * GeneratedLetter findRaw
+   */
+  export type GeneratedLetterFindRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The query predicate filter. If unspecified, then all documents in the collection will match the predicate. ${@link https://docs.mongodb.com/manual/reference/operator/query MongoDB Docs}.
+     */
+    filter?: InputJsonValue
+    /**
+     * Additional options to pass to the `find` command ${@link https://docs.mongodb.com/manual/reference/command/find/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * GeneratedLetter aggregateRaw
+   */
+  export type GeneratedLetterAggregateRawArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * An array of aggregation stages to process and transform the document stream via the aggregation pipeline. ${@link https://docs.mongodb.com/manual/reference/operator/aggregation-pipeline MongoDB Docs}.
+     */
+    pipeline?: InputJsonValue[]
+    /**
+     * Additional options to pass to the `aggregate` command ${@link https://docs.mongodb.com/manual/reference/command/aggregate/#command-fields MongoDB Docs}.
+     */
+    options?: InputJsonValue
+  }
+
+  /**
+   * GeneratedLetter without action
+   */
+  export type GeneratedLetterDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GeneratedLetter
+     */
+    select?: GeneratedLetterSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the GeneratedLetter
+     */
+    omit?: GeneratedLetterOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: GeneratedLetterInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -5222,6 +8659,44 @@ export namespace Prisma {
   };
 
   export type VerificationTokenScalarFieldEnum = (typeof VerificationTokenScalarFieldEnum)[keyof typeof VerificationTokenScalarFieldEnum]
+
+
+  export const JobDescriptionScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    text: 'text',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type JobDescriptionScalarFieldEnum = (typeof JobDescriptionScalarFieldEnum)[keyof typeof JobDescriptionScalarFieldEnum]
+
+
+  export const CVScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    fileName: 'fileName',
+    fileType: 'fileType',
+    content: 'content',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type CVScalarFieldEnum = (typeof CVScalarFieldEnum)[keyof typeof CVScalarFieldEnum]
+
+
+  export const GeneratedLetterScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    jobDescriptionId: 'jobDescriptionId',
+    cvId: 'cvId',
+    content: 'content',
+    suggestions: 'suggestions',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type GeneratedLetterScalarFieldEnum = (typeof GeneratedLetterScalarFieldEnum)[keyof typeof GeneratedLetterScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5318,6 +8793,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
+    jobDescriptions?: JobDescriptionListRelationFilter
+    generatedLetters?: GeneratedLetterListRelationFilter
+    cvs?: CVListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -5331,6 +8809,9 @@ export namespace Prisma {
     updatedAt?: SortOrder
     accounts?: AccountOrderByRelationAggregateInput
     sessions?: SessionOrderByRelationAggregateInput
+    jobDescriptions?: JobDescriptionOrderByRelationAggregateInput
+    generatedLetters?: GeneratedLetterOrderByRelationAggregateInput
+    cvs?: CVOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -5347,6 +8828,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     accounts?: AccountListRelationFilter
     sessions?: SessionListRelationFilter
+    jobDescriptions?: JobDescriptionListRelationFilter
+    generatedLetters?: GeneratedLetterListRelationFilter
+    cvs?: CVListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -5568,6 +9052,202 @@ export namespace Prisma {
     expires?: DateTimeWithAggregatesFilter<"VerificationToken"> | Date | string
   }
 
+  export type JobDescriptionWhereInput = {
+    AND?: JobDescriptionWhereInput | JobDescriptionWhereInput[]
+    OR?: JobDescriptionWhereInput[]
+    NOT?: JobDescriptionWhereInput | JobDescriptionWhereInput[]
+    id?: StringFilter<"JobDescription"> | string
+    userId?: StringFilter<"JobDescription"> | string
+    text?: StringFilter<"JobDescription"> | string
+    createdAt?: DateTimeFilter<"JobDescription"> | Date | string
+    updatedAt?: DateTimeFilter<"JobDescription"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    generatedLetters?: GeneratedLetterListRelationFilter
+  }
+
+  export type JobDescriptionOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    text?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    generatedLetters?: GeneratedLetterOrderByRelationAggregateInput
+  }
+
+  export type JobDescriptionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: JobDescriptionWhereInput | JobDescriptionWhereInput[]
+    OR?: JobDescriptionWhereInput[]
+    NOT?: JobDescriptionWhereInput | JobDescriptionWhereInput[]
+    userId?: StringFilter<"JobDescription"> | string
+    text?: StringFilter<"JobDescription"> | string
+    createdAt?: DateTimeFilter<"JobDescription"> | Date | string
+    updatedAt?: DateTimeFilter<"JobDescription"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    generatedLetters?: GeneratedLetterListRelationFilter
+  }, "id">
+
+  export type JobDescriptionOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    text?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: JobDescriptionCountOrderByAggregateInput
+    _max?: JobDescriptionMaxOrderByAggregateInput
+    _min?: JobDescriptionMinOrderByAggregateInput
+  }
+
+  export type JobDescriptionScalarWhereWithAggregatesInput = {
+    AND?: JobDescriptionScalarWhereWithAggregatesInput | JobDescriptionScalarWhereWithAggregatesInput[]
+    OR?: JobDescriptionScalarWhereWithAggregatesInput[]
+    NOT?: JobDescriptionScalarWhereWithAggregatesInput | JobDescriptionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"JobDescription"> | string
+    userId?: StringWithAggregatesFilter<"JobDescription"> | string
+    text?: StringWithAggregatesFilter<"JobDescription"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"JobDescription"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"JobDescription"> | Date | string
+  }
+
+  export type CVWhereInput = {
+    AND?: CVWhereInput | CVWhereInput[]
+    OR?: CVWhereInput[]
+    NOT?: CVWhereInput | CVWhereInput[]
+    id?: StringFilter<"CV"> | string
+    userId?: StringFilter<"CV"> | string
+    fileName?: StringFilter<"CV"> | string
+    fileType?: StringFilter<"CV"> | string
+    content?: StringFilter<"CV"> | string
+    createdAt?: DateTimeFilter<"CV"> | Date | string
+    updatedAt?: DateTimeFilter<"CV"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }
+
+  export type CVOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fileName?: SortOrder
+    fileType?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type CVWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: CVWhereInput | CVWhereInput[]
+    OR?: CVWhereInput[]
+    NOT?: CVWhereInput | CVWhereInput[]
+    userId?: StringFilter<"CV"> | string
+    fileName?: StringFilter<"CV"> | string
+    fileType?: StringFilter<"CV"> | string
+    content?: StringFilter<"CV"> | string
+    createdAt?: DateTimeFilter<"CV"> | Date | string
+    updatedAt?: DateTimeFilter<"CV"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type CVOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fileName?: SortOrder
+    fileType?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: CVCountOrderByAggregateInput
+    _max?: CVMaxOrderByAggregateInput
+    _min?: CVMinOrderByAggregateInput
+  }
+
+  export type CVScalarWhereWithAggregatesInput = {
+    AND?: CVScalarWhereWithAggregatesInput | CVScalarWhereWithAggregatesInput[]
+    OR?: CVScalarWhereWithAggregatesInput[]
+    NOT?: CVScalarWhereWithAggregatesInput | CVScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"CV"> | string
+    userId?: StringWithAggregatesFilter<"CV"> | string
+    fileName?: StringWithAggregatesFilter<"CV"> | string
+    fileType?: StringWithAggregatesFilter<"CV"> | string
+    content?: StringWithAggregatesFilter<"CV"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"CV"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"CV"> | Date | string
+  }
+
+  export type GeneratedLetterWhereInput = {
+    AND?: GeneratedLetterWhereInput | GeneratedLetterWhereInput[]
+    OR?: GeneratedLetterWhereInput[]
+    NOT?: GeneratedLetterWhereInput | GeneratedLetterWhereInput[]
+    id?: StringFilter<"GeneratedLetter"> | string
+    userId?: StringFilter<"GeneratedLetter"> | string
+    jobDescriptionId?: StringFilter<"GeneratedLetter"> | string
+    cvId?: StringNullableFilter<"GeneratedLetter"> | string | null
+    content?: StringFilter<"GeneratedLetter"> | string
+    suggestions?: StringNullableListFilter<"GeneratedLetter">
+    createdAt?: DateTimeFilter<"GeneratedLetter"> | Date | string
+    updatedAt?: DateTimeFilter<"GeneratedLetter"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    jobDescription?: XOR<JobDescriptionScalarRelationFilter, JobDescriptionWhereInput>
+  }
+
+  export type GeneratedLetterOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    jobDescriptionId?: SortOrder
+    cvId?: SortOrder
+    content?: SortOrder
+    suggestions?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    user?: UserOrderByWithRelationInput
+    jobDescription?: JobDescriptionOrderByWithRelationInput
+  }
+
+  export type GeneratedLetterWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: GeneratedLetterWhereInput | GeneratedLetterWhereInput[]
+    OR?: GeneratedLetterWhereInput[]
+    NOT?: GeneratedLetterWhereInput | GeneratedLetterWhereInput[]
+    userId?: StringFilter<"GeneratedLetter"> | string
+    jobDescriptionId?: StringFilter<"GeneratedLetter"> | string
+    cvId?: StringNullableFilter<"GeneratedLetter"> | string | null
+    content?: StringFilter<"GeneratedLetter"> | string
+    suggestions?: StringNullableListFilter<"GeneratedLetter">
+    createdAt?: DateTimeFilter<"GeneratedLetter"> | Date | string
+    updatedAt?: DateTimeFilter<"GeneratedLetter"> | Date | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    jobDescription?: XOR<JobDescriptionScalarRelationFilter, JobDescriptionWhereInput>
+  }, "id">
+
+  export type GeneratedLetterOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    jobDescriptionId?: SortOrder
+    cvId?: SortOrder
+    content?: SortOrder
+    suggestions?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: GeneratedLetterCountOrderByAggregateInput
+    _max?: GeneratedLetterMaxOrderByAggregateInput
+    _min?: GeneratedLetterMinOrderByAggregateInput
+  }
+
+  export type GeneratedLetterScalarWhereWithAggregatesInput = {
+    AND?: GeneratedLetterScalarWhereWithAggregatesInput | GeneratedLetterScalarWhereWithAggregatesInput[]
+    OR?: GeneratedLetterScalarWhereWithAggregatesInput[]
+    NOT?: GeneratedLetterScalarWhereWithAggregatesInput | GeneratedLetterScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"GeneratedLetter"> | string
+    userId?: StringWithAggregatesFilter<"GeneratedLetter"> | string
+    jobDescriptionId?: StringWithAggregatesFilter<"GeneratedLetter"> | string
+    cvId?: StringNullableWithAggregatesFilter<"GeneratedLetter"> | string | null
+    content?: StringWithAggregatesFilter<"GeneratedLetter"> | string
+    suggestions?: StringNullableListFilter<"GeneratedLetter">
+    createdAt?: DateTimeWithAggregatesFilter<"GeneratedLetter"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"GeneratedLetter"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     name?: string | null
@@ -5579,6 +9259,9 @@ export namespace Prisma {
     updatedAt?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
     sessions?: SessionCreateNestedManyWithoutUserInput
+    jobDescriptions?: JobDescriptionCreateNestedManyWithoutUserInput
+    generatedLetters?: GeneratedLetterCreateNestedManyWithoutUserInput
+    cvs?: CVCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -5592,6 +9275,9 @@ export namespace Prisma {
     updatedAt?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    jobDescriptions?: JobDescriptionUncheckedCreateNestedManyWithoutUserInput
+    generatedLetters?: GeneratedLetterUncheckedCreateNestedManyWithoutUserInput
+    cvs?: CVUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -5604,6 +9290,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
     sessions?: SessionUpdateManyWithoutUserNestedInput
+    jobDescriptions?: JobDescriptionUpdateManyWithoutUserNestedInput
+    generatedLetters?: GeneratedLetterUpdateManyWithoutUserNestedInput
+    cvs?: CVUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -5616,6 +9305,9 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    jobDescriptions?: JobDescriptionUncheckedUpdateManyWithoutUserNestedInput
+    generatedLetters?: GeneratedLetterUncheckedUpdateManyWithoutUserNestedInput
+    cvs?: CVUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -5838,6 +9530,197 @@ export namespace Prisma {
     expires?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type JobDescriptionCreateInput = {
+    id?: string
+    text: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutJobDescriptionsInput
+    generatedLetters?: GeneratedLetterCreateNestedManyWithoutJobDescriptionInput
+  }
+
+  export type JobDescriptionUncheckedCreateInput = {
+    id?: string
+    userId: string
+    text: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    generatedLetters?: GeneratedLetterUncheckedCreateNestedManyWithoutJobDescriptionInput
+  }
+
+  export type JobDescriptionUpdateInput = {
+    text?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutJobDescriptionsNestedInput
+    generatedLetters?: GeneratedLetterUpdateManyWithoutJobDescriptionNestedInput
+  }
+
+  export type JobDescriptionUncheckedUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    text?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    generatedLetters?: GeneratedLetterUncheckedUpdateManyWithoutJobDescriptionNestedInput
+  }
+
+  export type JobDescriptionCreateManyInput = {
+    id?: string
+    userId: string
+    text: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JobDescriptionUpdateManyMutationInput = {
+    text?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JobDescriptionUncheckedUpdateManyInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    text?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CVCreateInput = {
+    id?: string
+    fileName: string
+    fileType: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutCvsInput
+  }
+
+  export type CVUncheckedCreateInput = {
+    id?: string
+    userId: string
+    fileName: string
+    fileType: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CVUpdateInput = {
+    fileName?: StringFieldUpdateOperationsInput | string
+    fileType?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutCvsNestedInput
+  }
+
+  export type CVUncheckedUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    fileType?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CVCreateManyInput = {
+    id?: string
+    userId: string
+    fileName: string
+    fileType: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CVUpdateManyMutationInput = {
+    fileName?: StringFieldUpdateOperationsInput | string
+    fileType?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CVUncheckedUpdateManyInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    fileType?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GeneratedLetterCreateInput = {
+    id?: string
+    cvId?: string | null
+    content: string
+    suggestions?: GeneratedLetterCreatesuggestionsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutGeneratedLettersInput
+    jobDescription: JobDescriptionCreateNestedOneWithoutGeneratedLettersInput
+  }
+
+  export type GeneratedLetterUncheckedCreateInput = {
+    id?: string
+    userId: string
+    jobDescriptionId: string
+    cvId?: string | null
+    content: string
+    suggestions?: GeneratedLetterCreatesuggestionsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type GeneratedLetterUpdateInput = {
+    cvId?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    suggestions?: GeneratedLetterUpdatesuggestionsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutGeneratedLettersNestedInput
+    jobDescription?: JobDescriptionUpdateOneRequiredWithoutGeneratedLettersNestedInput
+  }
+
+  export type GeneratedLetterUncheckedUpdateInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    jobDescriptionId?: StringFieldUpdateOperationsInput | string
+    cvId?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    suggestions?: GeneratedLetterUpdatesuggestionsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GeneratedLetterCreateManyInput = {
+    id?: string
+    userId: string
+    jobDescriptionId: string
+    cvId?: string | null
+    content: string
+    suggestions?: GeneratedLetterCreatesuggestionsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type GeneratedLetterUpdateManyMutationInput = {
+    cvId?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    suggestions?: GeneratedLetterUpdatesuggestionsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GeneratedLetterUncheckedUpdateManyInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    jobDescriptionId?: StringFieldUpdateOperationsInput | string
+    cvId?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    suggestions?: GeneratedLetterUpdatesuggestionsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -5904,11 +9787,41 @@ export namespace Prisma {
     none?: SessionWhereInput
   }
 
+  export type JobDescriptionListRelationFilter = {
+    every?: JobDescriptionWhereInput
+    some?: JobDescriptionWhereInput
+    none?: JobDescriptionWhereInput
+  }
+
+  export type GeneratedLetterListRelationFilter = {
+    every?: GeneratedLetterWhereInput
+    some?: GeneratedLetterWhereInput
+    none?: GeneratedLetterWhereInput
+  }
+
+  export type CVListRelationFilter = {
+    every?: CVWhereInput
+    some?: CVWhereInput
+    none?: CVWhereInput
+  }
+
   export type AccountOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type SessionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type JobDescriptionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type GeneratedLetterOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CVOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -6150,6 +10063,104 @@ export namespace Prisma {
     expires?: SortOrder
   }
 
+  export type JobDescriptionCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    text?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type JobDescriptionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    text?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type JobDescriptionMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    text?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CVCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fileName?: SortOrder
+    fileType?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CVMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fileName?: SortOrder
+    fileType?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CVMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    fileName?: SortOrder
+    fileType?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
+  export type JobDescriptionScalarRelationFilter = {
+    is?: JobDescriptionWhereInput
+    isNot?: JobDescriptionWhereInput
+  }
+
+  export type GeneratedLetterCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    jobDescriptionId?: SortOrder
+    cvId?: SortOrder
+    content?: SortOrder
+    suggestions?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type GeneratedLetterMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    jobDescriptionId?: SortOrder
+    cvId?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type GeneratedLetterMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    jobDescriptionId?: SortOrder
+    cvId?: SortOrder
+    content?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
   export type AccountCreateNestedManyWithoutUserInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -6164,6 +10175,27 @@ export namespace Prisma {
     connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
   }
 
+  export type JobDescriptionCreateNestedManyWithoutUserInput = {
+    create?: XOR<JobDescriptionCreateWithoutUserInput, JobDescriptionUncheckedCreateWithoutUserInput> | JobDescriptionCreateWithoutUserInput[] | JobDescriptionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JobDescriptionCreateOrConnectWithoutUserInput | JobDescriptionCreateOrConnectWithoutUserInput[]
+    createMany?: JobDescriptionCreateManyUserInputEnvelope
+    connect?: JobDescriptionWhereUniqueInput | JobDescriptionWhereUniqueInput[]
+  }
+
+  export type GeneratedLetterCreateNestedManyWithoutUserInput = {
+    create?: XOR<GeneratedLetterCreateWithoutUserInput, GeneratedLetterUncheckedCreateWithoutUserInput> | GeneratedLetterCreateWithoutUserInput[] | GeneratedLetterUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: GeneratedLetterCreateOrConnectWithoutUserInput | GeneratedLetterCreateOrConnectWithoutUserInput[]
+    createMany?: GeneratedLetterCreateManyUserInputEnvelope
+    connect?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+  }
+
+  export type CVCreateNestedManyWithoutUserInput = {
+    create?: XOR<CVCreateWithoutUserInput, CVUncheckedCreateWithoutUserInput> | CVCreateWithoutUserInput[] | CVUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CVCreateOrConnectWithoutUserInput | CVCreateOrConnectWithoutUserInput[]
+    createMany?: CVCreateManyUserInputEnvelope
+    connect?: CVWhereUniqueInput | CVWhereUniqueInput[]
+  }
+
   export type AccountUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -6176,6 +10208,27 @@ export namespace Prisma {
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
     createMany?: SessionCreateManyUserInputEnvelope
     connect?: SessionWhereUniqueInput | SessionWhereUniqueInput[]
+  }
+
+  export type JobDescriptionUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<JobDescriptionCreateWithoutUserInput, JobDescriptionUncheckedCreateWithoutUserInput> | JobDescriptionCreateWithoutUserInput[] | JobDescriptionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JobDescriptionCreateOrConnectWithoutUserInput | JobDescriptionCreateOrConnectWithoutUserInput[]
+    createMany?: JobDescriptionCreateManyUserInputEnvelope
+    connect?: JobDescriptionWhereUniqueInput | JobDescriptionWhereUniqueInput[]
+  }
+
+  export type GeneratedLetterUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<GeneratedLetterCreateWithoutUserInput, GeneratedLetterUncheckedCreateWithoutUserInput> | GeneratedLetterCreateWithoutUserInput[] | GeneratedLetterUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: GeneratedLetterCreateOrConnectWithoutUserInput | GeneratedLetterCreateOrConnectWithoutUserInput[]
+    createMany?: GeneratedLetterCreateManyUserInputEnvelope
+    connect?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+  }
+
+  export type CVUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<CVCreateWithoutUserInput, CVUncheckedCreateWithoutUserInput> | CVCreateWithoutUserInput[] | CVUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CVCreateOrConnectWithoutUserInput | CVCreateOrConnectWithoutUserInput[]
+    createMany?: CVCreateManyUserInputEnvelope
+    connect?: CVWhereUniqueInput | CVWhereUniqueInput[]
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -6220,6 +10273,48 @@ export namespace Prisma {
     deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
   }
 
+  export type JobDescriptionUpdateManyWithoutUserNestedInput = {
+    create?: XOR<JobDescriptionCreateWithoutUserInput, JobDescriptionUncheckedCreateWithoutUserInput> | JobDescriptionCreateWithoutUserInput[] | JobDescriptionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JobDescriptionCreateOrConnectWithoutUserInput | JobDescriptionCreateOrConnectWithoutUserInput[]
+    upsert?: JobDescriptionUpsertWithWhereUniqueWithoutUserInput | JobDescriptionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: JobDescriptionCreateManyUserInputEnvelope
+    set?: JobDescriptionWhereUniqueInput | JobDescriptionWhereUniqueInput[]
+    disconnect?: JobDescriptionWhereUniqueInput | JobDescriptionWhereUniqueInput[]
+    delete?: JobDescriptionWhereUniqueInput | JobDescriptionWhereUniqueInput[]
+    connect?: JobDescriptionWhereUniqueInput | JobDescriptionWhereUniqueInput[]
+    update?: JobDescriptionUpdateWithWhereUniqueWithoutUserInput | JobDescriptionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: JobDescriptionUpdateManyWithWhereWithoutUserInput | JobDescriptionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: JobDescriptionScalarWhereInput | JobDescriptionScalarWhereInput[]
+  }
+
+  export type GeneratedLetterUpdateManyWithoutUserNestedInput = {
+    create?: XOR<GeneratedLetterCreateWithoutUserInput, GeneratedLetterUncheckedCreateWithoutUserInput> | GeneratedLetterCreateWithoutUserInput[] | GeneratedLetterUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: GeneratedLetterCreateOrConnectWithoutUserInput | GeneratedLetterCreateOrConnectWithoutUserInput[]
+    upsert?: GeneratedLetterUpsertWithWhereUniqueWithoutUserInput | GeneratedLetterUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: GeneratedLetterCreateManyUserInputEnvelope
+    set?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    disconnect?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    delete?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    connect?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    update?: GeneratedLetterUpdateWithWhereUniqueWithoutUserInput | GeneratedLetterUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: GeneratedLetterUpdateManyWithWhereWithoutUserInput | GeneratedLetterUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: GeneratedLetterScalarWhereInput | GeneratedLetterScalarWhereInput[]
+  }
+
+  export type CVUpdateManyWithoutUserNestedInput = {
+    create?: XOR<CVCreateWithoutUserInput, CVUncheckedCreateWithoutUserInput> | CVCreateWithoutUserInput[] | CVUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CVCreateOrConnectWithoutUserInput | CVCreateOrConnectWithoutUserInput[]
+    upsert?: CVUpsertWithWhereUniqueWithoutUserInput | CVUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: CVCreateManyUserInputEnvelope
+    set?: CVWhereUniqueInput | CVWhereUniqueInput[]
+    disconnect?: CVWhereUniqueInput | CVWhereUniqueInput[]
+    delete?: CVWhereUniqueInput | CVWhereUniqueInput[]
+    connect?: CVWhereUniqueInput | CVWhereUniqueInput[]
+    update?: CVUpdateWithWhereUniqueWithoutUserInput | CVUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: CVUpdateManyWithWhereWithoutUserInput | CVUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: CVScalarWhereInput | CVScalarWhereInput[]
+  }
+
   export type AccountUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<AccountCreateWithoutUserInput, AccountUncheckedCreateWithoutUserInput> | AccountCreateWithoutUserInput[] | AccountUncheckedCreateWithoutUserInput[]
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
@@ -6246,6 +10341,48 @@ export namespace Prisma {
     update?: SessionUpdateWithWhereUniqueWithoutUserInput | SessionUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: SessionUpdateManyWithWhereWithoutUserInput | SessionUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: SessionScalarWhereInput | SessionScalarWhereInput[]
+  }
+
+  export type JobDescriptionUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<JobDescriptionCreateWithoutUserInput, JobDescriptionUncheckedCreateWithoutUserInput> | JobDescriptionCreateWithoutUserInput[] | JobDescriptionUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JobDescriptionCreateOrConnectWithoutUserInput | JobDescriptionCreateOrConnectWithoutUserInput[]
+    upsert?: JobDescriptionUpsertWithWhereUniqueWithoutUserInput | JobDescriptionUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: JobDescriptionCreateManyUserInputEnvelope
+    set?: JobDescriptionWhereUniqueInput | JobDescriptionWhereUniqueInput[]
+    disconnect?: JobDescriptionWhereUniqueInput | JobDescriptionWhereUniqueInput[]
+    delete?: JobDescriptionWhereUniqueInput | JobDescriptionWhereUniqueInput[]
+    connect?: JobDescriptionWhereUniqueInput | JobDescriptionWhereUniqueInput[]
+    update?: JobDescriptionUpdateWithWhereUniqueWithoutUserInput | JobDescriptionUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: JobDescriptionUpdateManyWithWhereWithoutUserInput | JobDescriptionUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: JobDescriptionScalarWhereInput | JobDescriptionScalarWhereInput[]
+  }
+
+  export type GeneratedLetterUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<GeneratedLetterCreateWithoutUserInput, GeneratedLetterUncheckedCreateWithoutUserInput> | GeneratedLetterCreateWithoutUserInput[] | GeneratedLetterUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: GeneratedLetterCreateOrConnectWithoutUserInput | GeneratedLetterCreateOrConnectWithoutUserInput[]
+    upsert?: GeneratedLetterUpsertWithWhereUniqueWithoutUserInput | GeneratedLetterUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: GeneratedLetterCreateManyUserInputEnvelope
+    set?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    disconnect?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    delete?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    connect?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    update?: GeneratedLetterUpdateWithWhereUniqueWithoutUserInput | GeneratedLetterUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: GeneratedLetterUpdateManyWithWhereWithoutUserInput | GeneratedLetterUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: GeneratedLetterScalarWhereInput | GeneratedLetterScalarWhereInput[]
+  }
+
+  export type CVUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<CVCreateWithoutUserInput, CVUncheckedCreateWithoutUserInput> | CVCreateWithoutUserInput[] | CVUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CVCreateOrConnectWithoutUserInput | CVCreateOrConnectWithoutUserInput[]
+    upsert?: CVUpsertWithWhereUniqueWithoutUserInput | CVUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: CVCreateManyUserInputEnvelope
+    set?: CVWhereUniqueInput | CVWhereUniqueInput[]
+    disconnect?: CVWhereUniqueInput | CVWhereUniqueInput[]
+    delete?: CVWhereUniqueInput | CVWhereUniqueInput[]
+    connect?: CVWhereUniqueInput | CVWhereUniqueInput[]
+    update?: CVUpdateWithWhereUniqueWithoutUserInput | CVUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: CVUpdateManyWithWhereWithoutUserInput | CVUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: CVScalarWhereInput | CVScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutAccountsInput = {
@@ -6287,6 +10424,113 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutSessionsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSessionsInput, UserUpdateWithoutSessionsInput>, UserUncheckedUpdateWithoutSessionsInput>
+  }
+
+  export type UserCreateNestedOneWithoutJobDescriptionsInput = {
+    create?: XOR<UserCreateWithoutJobDescriptionsInput, UserUncheckedCreateWithoutJobDescriptionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutJobDescriptionsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type GeneratedLetterCreateNestedManyWithoutJobDescriptionInput = {
+    create?: XOR<GeneratedLetterCreateWithoutJobDescriptionInput, GeneratedLetterUncheckedCreateWithoutJobDescriptionInput> | GeneratedLetterCreateWithoutJobDescriptionInput[] | GeneratedLetterUncheckedCreateWithoutJobDescriptionInput[]
+    connectOrCreate?: GeneratedLetterCreateOrConnectWithoutJobDescriptionInput | GeneratedLetterCreateOrConnectWithoutJobDescriptionInput[]
+    createMany?: GeneratedLetterCreateManyJobDescriptionInputEnvelope
+    connect?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+  }
+
+  export type GeneratedLetterUncheckedCreateNestedManyWithoutJobDescriptionInput = {
+    create?: XOR<GeneratedLetterCreateWithoutJobDescriptionInput, GeneratedLetterUncheckedCreateWithoutJobDescriptionInput> | GeneratedLetterCreateWithoutJobDescriptionInput[] | GeneratedLetterUncheckedCreateWithoutJobDescriptionInput[]
+    connectOrCreate?: GeneratedLetterCreateOrConnectWithoutJobDescriptionInput | GeneratedLetterCreateOrConnectWithoutJobDescriptionInput[]
+    createMany?: GeneratedLetterCreateManyJobDescriptionInputEnvelope
+    connect?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutJobDescriptionsNestedInput = {
+    create?: XOR<UserCreateWithoutJobDescriptionsInput, UserUncheckedCreateWithoutJobDescriptionsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutJobDescriptionsInput
+    upsert?: UserUpsertWithoutJobDescriptionsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutJobDescriptionsInput, UserUpdateWithoutJobDescriptionsInput>, UserUncheckedUpdateWithoutJobDescriptionsInput>
+  }
+
+  export type GeneratedLetterUpdateManyWithoutJobDescriptionNestedInput = {
+    create?: XOR<GeneratedLetterCreateWithoutJobDescriptionInput, GeneratedLetterUncheckedCreateWithoutJobDescriptionInput> | GeneratedLetterCreateWithoutJobDescriptionInput[] | GeneratedLetterUncheckedCreateWithoutJobDescriptionInput[]
+    connectOrCreate?: GeneratedLetterCreateOrConnectWithoutJobDescriptionInput | GeneratedLetterCreateOrConnectWithoutJobDescriptionInput[]
+    upsert?: GeneratedLetterUpsertWithWhereUniqueWithoutJobDescriptionInput | GeneratedLetterUpsertWithWhereUniqueWithoutJobDescriptionInput[]
+    createMany?: GeneratedLetterCreateManyJobDescriptionInputEnvelope
+    set?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    disconnect?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    delete?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    connect?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    update?: GeneratedLetterUpdateWithWhereUniqueWithoutJobDescriptionInput | GeneratedLetterUpdateWithWhereUniqueWithoutJobDescriptionInput[]
+    updateMany?: GeneratedLetterUpdateManyWithWhereWithoutJobDescriptionInput | GeneratedLetterUpdateManyWithWhereWithoutJobDescriptionInput[]
+    deleteMany?: GeneratedLetterScalarWhereInput | GeneratedLetterScalarWhereInput[]
+  }
+
+  export type GeneratedLetterUncheckedUpdateManyWithoutJobDescriptionNestedInput = {
+    create?: XOR<GeneratedLetterCreateWithoutJobDescriptionInput, GeneratedLetterUncheckedCreateWithoutJobDescriptionInput> | GeneratedLetterCreateWithoutJobDescriptionInput[] | GeneratedLetterUncheckedCreateWithoutJobDescriptionInput[]
+    connectOrCreate?: GeneratedLetterCreateOrConnectWithoutJobDescriptionInput | GeneratedLetterCreateOrConnectWithoutJobDescriptionInput[]
+    upsert?: GeneratedLetterUpsertWithWhereUniqueWithoutJobDescriptionInput | GeneratedLetterUpsertWithWhereUniqueWithoutJobDescriptionInput[]
+    createMany?: GeneratedLetterCreateManyJobDescriptionInputEnvelope
+    set?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    disconnect?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    delete?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    connect?: GeneratedLetterWhereUniqueInput | GeneratedLetterWhereUniqueInput[]
+    update?: GeneratedLetterUpdateWithWhereUniqueWithoutJobDescriptionInput | GeneratedLetterUpdateWithWhereUniqueWithoutJobDescriptionInput[]
+    updateMany?: GeneratedLetterUpdateManyWithWhereWithoutJobDescriptionInput | GeneratedLetterUpdateManyWithWhereWithoutJobDescriptionInput[]
+    deleteMany?: GeneratedLetterScalarWhereInput | GeneratedLetterScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutCvsInput = {
+    create?: XOR<UserCreateWithoutCvsInput, UserUncheckedCreateWithoutCvsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCvsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserUpdateOneRequiredWithoutCvsNestedInput = {
+    create?: XOR<UserCreateWithoutCvsInput, UserUncheckedCreateWithoutCvsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCvsInput
+    upsert?: UserUpsertWithoutCvsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCvsInput, UserUpdateWithoutCvsInput>, UserUncheckedUpdateWithoutCvsInput>
+  }
+
+  export type GeneratedLetterCreatesuggestionsInput = {
+    set: string[]
+  }
+
+  export type UserCreateNestedOneWithoutGeneratedLettersInput = {
+    create?: XOR<UserCreateWithoutGeneratedLettersInput, UserUncheckedCreateWithoutGeneratedLettersInput>
+    connectOrCreate?: UserCreateOrConnectWithoutGeneratedLettersInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type JobDescriptionCreateNestedOneWithoutGeneratedLettersInput = {
+    create?: XOR<JobDescriptionCreateWithoutGeneratedLettersInput, JobDescriptionUncheckedCreateWithoutGeneratedLettersInput>
+    connectOrCreate?: JobDescriptionCreateOrConnectWithoutGeneratedLettersInput
+    connect?: JobDescriptionWhereUniqueInput
+  }
+
+  export type GeneratedLetterUpdatesuggestionsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type UserUpdateOneRequiredWithoutGeneratedLettersNestedInput = {
+    create?: XOR<UserCreateWithoutGeneratedLettersInput, UserUncheckedCreateWithoutGeneratedLettersInput>
+    connectOrCreate?: UserCreateOrConnectWithoutGeneratedLettersInput
+    upsert?: UserUpsertWithoutGeneratedLettersInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutGeneratedLettersInput, UserUpdateWithoutGeneratedLettersInput>, UserUncheckedUpdateWithoutGeneratedLettersInput>
+  }
+
+  export type JobDescriptionUpdateOneRequiredWithoutGeneratedLettersNestedInput = {
+    create?: XOR<JobDescriptionCreateWithoutGeneratedLettersInput, JobDescriptionUncheckedCreateWithoutGeneratedLettersInput>
+    connectOrCreate?: JobDescriptionCreateOrConnectWithoutGeneratedLettersInput
+    upsert?: JobDescriptionUpsertWithoutGeneratedLettersInput
+    connect?: JobDescriptionWhereUniqueInput
+    update?: XOR<XOR<JobDescriptionUpdateToOneWithWhereWithoutGeneratedLettersInput, JobDescriptionUpdateWithoutGeneratedLettersInput>, JobDescriptionUncheckedUpdateWithoutGeneratedLettersInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -6515,6 +10759,87 @@ export namespace Prisma {
     data: SessionCreateManyUserInput | SessionCreateManyUserInput[]
   }
 
+  export type JobDescriptionCreateWithoutUserInput = {
+    id?: string
+    text: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    generatedLetters?: GeneratedLetterCreateNestedManyWithoutJobDescriptionInput
+  }
+
+  export type JobDescriptionUncheckedCreateWithoutUserInput = {
+    id?: string
+    text: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    generatedLetters?: GeneratedLetterUncheckedCreateNestedManyWithoutJobDescriptionInput
+  }
+
+  export type JobDescriptionCreateOrConnectWithoutUserInput = {
+    where: JobDescriptionWhereUniqueInput
+    create: XOR<JobDescriptionCreateWithoutUserInput, JobDescriptionUncheckedCreateWithoutUserInput>
+  }
+
+  export type JobDescriptionCreateManyUserInputEnvelope = {
+    data: JobDescriptionCreateManyUserInput | JobDescriptionCreateManyUserInput[]
+  }
+
+  export type GeneratedLetterCreateWithoutUserInput = {
+    id?: string
+    cvId?: string | null
+    content: string
+    suggestions?: GeneratedLetterCreatesuggestionsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    jobDescription: JobDescriptionCreateNestedOneWithoutGeneratedLettersInput
+  }
+
+  export type GeneratedLetterUncheckedCreateWithoutUserInput = {
+    id?: string
+    jobDescriptionId: string
+    cvId?: string | null
+    content: string
+    suggestions?: GeneratedLetterCreatesuggestionsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type GeneratedLetterCreateOrConnectWithoutUserInput = {
+    where: GeneratedLetterWhereUniqueInput
+    create: XOR<GeneratedLetterCreateWithoutUserInput, GeneratedLetterUncheckedCreateWithoutUserInput>
+  }
+
+  export type GeneratedLetterCreateManyUserInputEnvelope = {
+    data: GeneratedLetterCreateManyUserInput | GeneratedLetterCreateManyUserInput[]
+  }
+
+  export type CVCreateWithoutUserInput = {
+    id?: string
+    fileName: string
+    fileType: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CVUncheckedCreateWithoutUserInput = {
+    id?: string
+    fileName: string
+    fileType: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CVCreateOrConnectWithoutUserInput = {
+    where: CVWhereUniqueInput
+    create: XOR<CVCreateWithoutUserInput, CVUncheckedCreateWithoutUserInput>
+  }
+
+  export type CVCreateManyUserInputEnvelope = {
+    data: CVCreateManyUserInput | CVCreateManyUserInput[]
+  }
+
   export type AccountUpsertWithWhereUniqueWithoutUserInput = {
     where: AccountWhereUniqueInput
     update: XOR<AccountUpdateWithoutUserInput, AccountUncheckedUpdateWithoutUserInput>
@@ -6575,6 +10900,92 @@ export namespace Prisma {
     expires?: DateTimeFilter<"Session"> | Date | string
   }
 
+  export type JobDescriptionUpsertWithWhereUniqueWithoutUserInput = {
+    where: JobDescriptionWhereUniqueInput
+    update: XOR<JobDescriptionUpdateWithoutUserInput, JobDescriptionUncheckedUpdateWithoutUserInput>
+    create: XOR<JobDescriptionCreateWithoutUserInput, JobDescriptionUncheckedCreateWithoutUserInput>
+  }
+
+  export type JobDescriptionUpdateWithWhereUniqueWithoutUserInput = {
+    where: JobDescriptionWhereUniqueInput
+    data: XOR<JobDescriptionUpdateWithoutUserInput, JobDescriptionUncheckedUpdateWithoutUserInput>
+  }
+
+  export type JobDescriptionUpdateManyWithWhereWithoutUserInput = {
+    where: JobDescriptionScalarWhereInput
+    data: XOR<JobDescriptionUpdateManyMutationInput, JobDescriptionUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type JobDescriptionScalarWhereInput = {
+    AND?: JobDescriptionScalarWhereInput | JobDescriptionScalarWhereInput[]
+    OR?: JobDescriptionScalarWhereInput[]
+    NOT?: JobDescriptionScalarWhereInput | JobDescriptionScalarWhereInput[]
+    id?: StringFilter<"JobDescription"> | string
+    userId?: StringFilter<"JobDescription"> | string
+    text?: StringFilter<"JobDescription"> | string
+    createdAt?: DateTimeFilter<"JobDescription"> | Date | string
+    updatedAt?: DateTimeFilter<"JobDescription"> | Date | string
+  }
+
+  export type GeneratedLetterUpsertWithWhereUniqueWithoutUserInput = {
+    where: GeneratedLetterWhereUniqueInput
+    update: XOR<GeneratedLetterUpdateWithoutUserInput, GeneratedLetterUncheckedUpdateWithoutUserInput>
+    create: XOR<GeneratedLetterCreateWithoutUserInput, GeneratedLetterUncheckedCreateWithoutUserInput>
+  }
+
+  export type GeneratedLetterUpdateWithWhereUniqueWithoutUserInput = {
+    where: GeneratedLetterWhereUniqueInput
+    data: XOR<GeneratedLetterUpdateWithoutUserInput, GeneratedLetterUncheckedUpdateWithoutUserInput>
+  }
+
+  export type GeneratedLetterUpdateManyWithWhereWithoutUserInput = {
+    where: GeneratedLetterScalarWhereInput
+    data: XOR<GeneratedLetterUpdateManyMutationInput, GeneratedLetterUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type GeneratedLetterScalarWhereInput = {
+    AND?: GeneratedLetterScalarWhereInput | GeneratedLetterScalarWhereInput[]
+    OR?: GeneratedLetterScalarWhereInput[]
+    NOT?: GeneratedLetterScalarWhereInput | GeneratedLetterScalarWhereInput[]
+    id?: StringFilter<"GeneratedLetter"> | string
+    userId?: StringFilter<"GeneratedLetter"> | string
+    jobDescriptionId?: StringFilter<"GeneratedLetter"> | string
+    cvId?: StringNullableFilter<"GeneratedLetter"> | string | null
+    content?: StringFilter<"GeneratedLetter"> | string
+    suggestions?: StringNullableListFilter<"GeneratedLetter">
+    createdAt?: DateTimeFilter<"GeneratedLetter"> | Date | string
+    updatedAt?: DateTimeFilter<"GeneratedLetter"> | Date | string
+  }
+
+  export type CVUpsertWithWhereUniqueWithoutUserInput = {
+    where: CVWhereUniqueInput
+    update: XOR<CVUpdateWithoutUserInput, CVUncheckedUpdateWithoutUserInput>
+    create: XOR<CVCreateWithoutUserInput, CVUncheckedCreateWithoutUserInput>
+  }
+
+  export type CVUpdateWithWhereUniqueWithoutUserInput = {
+    where: CVWhereUniqueInput
+    data: XOR<CVUpdateWithoutUserInput, CVUncheckedUpdateWithoutUserInput>
+  }
+
+  export type CVUpdateManyWithWhereWithoutUserInput = {
+    where: CVScalarWhereInput
+    data: XOR<CVUpdateManyMutationInput, CVUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type CVScalarWhereInput = {
+    AND?: CVScalarWhereInput | CVScalarWhereInput[]
+    OR?: CVScalarWhereInput[]
+    NOT?: CVScalarWhereInput | CVScalarWhereInput[]
+    id?: StringFilter<"CV"> | string
+    userId?: StringFilter<"CV"> | string
+    fileName?: StringFilter<"CV"> | string
+    fileType?: StringFilter<"CV"> | string
+    content?: StringFilter<"CV"> | string
+    createdAt?: DateTimeFilter<"CV"> | Date | string
+    updatedAt?: DateTimeFilter<"CV"> | Date | string
+  }
+
   export type UserCreateWithoutAccountsInput = {
     id?: string
     name?: string | null
@@ -6585,6 +10996,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
+    jobDescriptions?: JobDescriptionCreateNestedManyWithoutUserInput
+    generatedLetters?: GeneratedLetterCreateNestedManyWithoutUserInput
+    cvs?: CVCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -6597,6 +11011,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    jobDescriptions?: JobDescriptionUncheckedCreateNestedManyWithoutUserInput
+    generatedLetters?: GeneratedLetterUncheckedCreateNestedManyWithoutUserInput
+    cvs?: CVUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -6624,6 +11041,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
+    jobDescriptions?: JobDescriptionUpdateManyWithoutUserNestedInput
+    generatedLetters?: GeneratedLetterUpdateManyWithoutUserNestedInput
+    cvs?: CVUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -6635,6 +11055,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    jobDescriptions?: JobDescriptionUncheckedUpdateManyWithoutUserNestedInput
+    generatedLetters?: GeneratedLetterUncheckedUpdateManyWithoutUserNestedInput
+    cvs?: CVUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutSessionsInput = {
@@ -6647,6 +11070,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
+    jobDescriptions?: JobDescriptionCreateNestedManyWithoutUserInput
+    generatedLetters?: GeneratedLetterCreateNestedManyWithoutUserInput
+    cvs?: CVCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -6659,6 +11085,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    jobDescriptions?: JobDescriptionUncheckedCreateNestedManyWithoutUserInput
+    generatedLetters?: GeneratedLetterUncheckedCreateNestedManyWithoutUserInput
+    cvs?: CVUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -6686,6 +11115,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
+    jobDescriptions?: JobDescriptionUpdateManyWithoutUserNestedInput
+    generatedLetters?: GeneratedLetterUpdateManyWithoutUserNestedInput
+    cvs?: CVUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -6697,6 +11129,322 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    jobDescriptions?: JobDescriptionUncheckedUpdateManyWithoutUserNestedInput
+    generatedLetters?: GeneratedLetterUncheckedUpdateManyWithoutUserNestedInput
+    cvs?: CVUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutJobDescriptionsInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    password?: string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    generatedLetters?: GeneratedLetterCreateNestedManyWithoutUserInput
+    cvs?: CVCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutJobDescriptionsInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    password?: string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    generatedLetters?: GeneratedLetterUncheckedCreateNestedManyWithoutUserInput
+    cvs?: CVUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutJobDescriptionsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutJobDescriptionsInput, UserUncheckedCreateWithoutJobDescriptionsInput>
+  }
+
+  export type GeneratedLetterCreateWithoutJobDescriptionInput = {
+    id?: string
+    cvId?: string | null
+    content: string
+    suggestions?: GeneratedLetterCreatesuggestionsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutGeneratedLettersInput
+  }
+
+  export type GeneratedLetterUncheckedCreateWithoutJobDescriptionInput = {
+    id?: string
+    userId: string
+    cvId?: string | null
+    content: string
+    suggestions?: GeneratedLetterCreatesuggestionsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type GeneratedLetterCreateOrConnectWithoutJobDescriptionInput = {
+    where: GeneratedLetterWhereUniqueInput
+    create: XOR<GeneratedLetterCreateWithoutJobDescriptionInput, GeneratedLetterUncheckedCreateWithoutJobDescriptionInput>
+  }
+
+  export type GeneratedLetterCreateManyJobDescriptionInputEnvelope = {
+    data: GeneratedLetterCreateManyJobDescriptionInput | GeneratedLetterCreateManyJobDescriptionInput[]
+  }
+
+  export type UserUpsertWithoutJobDescriptionsInput = {
+    update: XOR<UserUpdateWithoutJobDescriptionsInput, UserUncheckedUpdateWithoutJobDescriptionsInput>
+    create: XOR<UserCreateWithoutJobDescriptionsInput, UserUncheckedCreateWithoutJobDescriptionsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutJobDescriptionsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutJobDescriptionsInput, UserUncheckedUpdateWithoutJobDescriptionsInput>
+  }
+
+  export type UserUpdateWithoutJobDescriptionsInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    generatedLetters?: GeneratedLetterUpdateManyWithoutUserNestedInput
+    cvs?: CVUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutJobDescriptionsInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    generatedLetters?: GeneratedLetterUncheckedUpdateManyWithoutUserNestedInput
+    cvs?: CVUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type GeneratedLetterUpsertWithWhereUniqueWithoutJobDescriptionInput = {
+    where: GeneratedLetterWhereUniqueInput
+    update: XOR<GeneratedLetterUpdateWithoutJobDescriptionInput, GeneratedLetterUncheckedUpdateWithoutJobDescriptionInput>
+    create: XOR<GeneratedLetterCreateWithoutJobDescriptionInput, GeneratedLetterUncheckedCreateWithoutJobDescriptionInput>
+  }
+
+  export type GeneratedLetterUpdateWithWhereUniqueWithoutJobDescriptionInput = {
+    where: GeneratedLetterWhereUniqueInput
+    data: XOR<GeneratedLetterUpdateWithoutJobDescriptionInput, GeneratedLetterUncheckedUpdateWithoutJobDescriptionInput>
+  }
+
+  export type GeneratedLetterUpdateManyWithWhereWithoutJobDescriptionInput = {
+    where: GeneratedLetterScalarWhereInput
+    data: XOR<GeneratedLetterUpdateManyMutationInput, GeneratedLetterUncheckedUpdateManyWithoutJobDescriptionInput>
+  }
+
+  export type UserCreateWithoutCvsInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    password?: string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    jobDescriptions?: JobDescriptionCreateNestedManyWithoutUserInput
+    generatedLetters?: GeneratedLetterCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutCvsInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    password?: string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    jobDescriptions?: JobDescriptionUncheckedCreateNestedManyWithoutUserInput
+    generatedLetters?: GeneratedLetterUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutCvsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutCvsInput, UserUncheckedCreateWithoutCvsInput>
+  }
+
+  export type UserUpsertWithoutCvsInput = {
+    update: XOR<UserUpdateWithoutCvsInput, UserUncheckedUpdateWithoutCvsInput>
+    create: XOR<UserCreateWithoutCvsInput, UserUncheckedCreateWithoutCvsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutCvsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutCvsInput, UserUncheckedUpdateWithoutCvsInput>
+  }
+
+  export type UserUpdateWithoutCvsInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    jobDescriptions?: JobDescriptionUpdateManyWithoutUserNestedInput
+    generatedLetters?: GeneratedLetterUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutCvsInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    jobDescriptions?: JobDescriptionUncheckedUpdateManyWithoutUserNestedInput
+    generatedLetters?: GeneratedLetterUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserCreateWithoutGeneratedLettersInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    password?: string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    jobDescriptions?: JobDescriptionCreateNestedManyWithoutUserInput
+    cvs?: CVCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutGeneratedLettersInput = {
+    id?: string
+    name?: string | null
+    email?: string | null
+    emailVerified?: Date | string | null
+    password?: string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    jobDescriptions?: JobDescriptionUncheckedCreateNestedManyWithoutUserInput
+    cvs?: CVUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutGeneratedLettersInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutGeneratedLettersInput, UserUncheckedCreateWithoutGeneratedLettersInput>
+  }
+
+  export type JobDescriptionCreateWithoutGeneratedLettersInput = {
+    id?: string
+    text: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutJobDescriptionsInput
+  }
+
+  export type JobDescriptionUncheckedCreateWithoutGeneratedLettersInput = {
+    id?: string
+    userId: string
+    text: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JobDescriptionCreateOrConnectWithoutGeneratedLettersInput = {
+    where: JobDescriptionWhereUniqueInput
+    create: XOR<JobDescriptionCreateWithoutGeneratedLettersInput, JobDescriptionUncheckedCreateWithoutGeneratedLettersInput>
+  }
+
+  export type UserUpsertWithoutGeneratedLettersInput = {
+    update: XOR<UserUpdateWithoutGeneratedLettersInput, UserUncheckedUpdateWithoutGeneratedLettersInput>
+    create: XOR<UserCreateWithoutGeneratedLettersInput, UserUncheckedCreateWithoutGeneratedLettersInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutGeneratedLettersInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutGeneratedLettersInput, UserUncheckedUpdateWithoutGeneratedLettersInput>
+  }
+
+  export type UserUpdateWithoutGeneratedLettersInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    jobDescriptions?: JobDescriptionUpdateManyWithoutUserNestedInput
+    cvs?: CVUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutGeneratedLettersInput = {
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    emailVerified?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    jobDescriptions?: JobDescriptionUncheckedUpdateManyWithoutUserNestedInput
+    cvs?: CVUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type JobDescriptionUpsertWithoutGeneratedLettersInput = {
+    update: XOR<JobDescriptionUpdateWithoutGeneratedLettersInput, JobDescriptionUncheckedUpdateWithoutGeneratedLettersInput>
+    create: XOR<JobDescriptionCreateWithoutGeneratedLettersInput, JobDescriptionUncheckedCreateWithoutGeneratedLettersInput>
+    where?: JobDescriptionWhereInput
+  }
+
+  export type JobDescriptionUpdateToOneWithWhereWithoutGeneratedLettersInput = {
+    where?: JobDescriptionWhereInput
+    data: XOR<JobDescriptionUpdateWithoutGeneratedLettersInput, JobDescriptionUncheckedUpdateWithoutGeneratedLettersInput>
+  }
+
+  export type JobDescriptionUpdateWithoutGeneratedLettersInput = {
+    text?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutJobDescriptionsNestedInput
+  }
+
+  export type JobDescriptionUncheckedUpdateWithoutGeneratedLettersInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    text?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AccountCreateManyUserInput = {
@@ -6717,6 +11465,32 @@ export namespace Prisma {
     id?: string
     sessionToken: string
     expires: Date | string
+  }
+
+  export type JobDescriptionCreateManyUserInput = {
+    id?: string
+    text: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type GeneratedLetterCreateManyUserInput = {
+    id?: string
+    jobDescriptionId: string
+    cvId?: string | null
+    content: string
+    suggestions?: GeneratedLetterCreatesuggestionsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CVCreateManyUserInput = {
+    id?: string
+    fileName: string
+    fileType: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type AccountUpdateWithoutUserInput = {
@@ -6771,6 +11545,114 @@ export namespace Prisma {
   export type SessionUncheckedUpdateManyWithoutUserInput = {
     sessionToken?: StringFieldUpdateOperationsInput | string
     expires?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JobDescriptionUpdateWithoutUserInput = {
+    text?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    generatedLetters?: GeneratedLetterUpdateManyWithoutJobDescriptionNestedInput
+  }
+
+  export type JobDescriptionUncheckedUpdateWithoutUserInput = {
+    text?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    generatedLetters?: GeneratedLetterUncheckedUpdateManyWithoutJobDescriptionNestedInput
+  }
+
+  export type JobDescriptionUncheckedUpdateManyWithoutUserInput = {
+    text?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GeneratedLetterUpdateWithoutUserInput = {
+    cvId?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    suggestions?: GeneratedLetterUpdatesuggestionsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    jobDescription?: JobDescriptionUpdateOneRequiredWithoutGeneratedLettersNestedInput
+  }
+
+  export type GeneratedLetterUncheckedUpdateWithoutUserInput = {
+    jobDescriptionId?: StringFieldUpdateOperationsInput | string
+    cvId?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    suggestions?: GeneratedLetterUpdatesuggestionsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GeneratedLetterUncheckedUpdateManyWithoutUserInput = {
+    jobDescriptionId?: StringFieldUpdateOperationsInput | string
+    cvId?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    suggestions?: GeneratedLetterUpdatesuggestionsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CVUpdateWithoutUserInput = {
+    fileName?: StringFieldUpdateOperationsInput | string
+    fileType?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CVUncheckedUpdateWithoutUserInput = {
+    fileName?: StringFieldUpdateOperationsInput | string
+    fileType?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CVUncheckedUpdateManyWithoutUserInput = {
+    fileName?: StringFieldUpdateOperationsInput | string
+    fileType?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GeneratedLetterCreateManyJobDescriptionInput = {
+    id?: string
+    userId: string
+    cvId?: string | null
+    content: string
+    suggestions?: GeneratedLetterCreatesuggestionsInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type GeneratedLetterUpdateWithoutJobDescriptionInput = {
+    cvId?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    suggestions?: GeneratedLetterUpdatesuggestionsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutGeneratedLettersNestedInput
+  }
+
+  export type GeneratedLetterUncheckedUpdateWithoutJobDescriptionInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    cvId?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    suggestions?: GeneratedLetterUpdatesuggestionsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type GeneratedLetterUncheckedUpdateManyWithoutJobDescriptionInput = {
+    userId?: StringFieldUpdateOperationsInput | string
+    cvId?: NullableStringFieldUpdateOperationsInput | string | null
+    content?: StringFieldUpdateOperationsInput | string
+    suggestions?: GeneratedLetterUpdatesuggestionsInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

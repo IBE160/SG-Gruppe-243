@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
+import { createTRPCRouter, publicProcedure, protectedProcedure } from "~/server/api/trpc";
 import { TRPCError } from "@trpc/server";
 import bcrypt from "bcryptjs";
 import { Resend } from "resend";
@@ -7,12 +7,31 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY ?? "re_123");
 
 export const userRouter = createTRPCRouter({
+  me: protectedProcedure.query(async ({ ctx }) => {
+    const user = await ctx.db.user.findUnique({
+      where: { id: ctx.session.user.id },
+      select: { name: true, email: true, image: true },
+    });
+    return user;
+  }),
+
+  update: protectedProcedure
+    .input(z.object({ name: z.string().min(1) }))
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db.user.update({
+        where: { id: ctx.session.user.id },
+        data: { name: input.name },
+      });
+      return { status: "success" };
+    }),
+
   create: publicProcedure
     .input(
       z.object({
         name: z.string().min(1, "Name is required"),
         email: z.string().email("Invalid email address"),
         password: z.string().min(8, "Password must be at least 8 characters"),
+        skipVerification: z.boolean().optional(),
       })
     )
     .mutation(async ({ ctx, input }) => {
@@ -34,32 +53,35 @@ export const userRouter = createTRPCRouter({
           name: input.name,
           email: input.email,
           password: hashedPassword,
+          emailVerified: input.skipVerification ? new Date() : null,
         },
       });
 
-      // Verification Token Logic
-      const token = crypto.randomUUID();
-      const expires = new Date(Date.now() + 1000 * 60 * 60 * 24); // 24 hours
+      if (!input.skipVerification) {
+        // Verification Token Logic
+        const token = crypto.randomUUID();
+        const expires = new Date(Date.now() + 1000 * 60 * 60 * 24); // 24 hours
 
-      await ctx.db.verificationToken.create({
-        data: {
-          identifier: input.email,
-          token,
-          expires,
-        },
-      });
+        await ctx.db.verificationToken.create({
+          data: {
+            identifier: input.email,
+            token,
+            expires,
+          },
+        });
 
-      // Send Email
-      if (process.env.RESEND_API_KEY) {
-        try {
-            await resend.emails.send({
-            from: "onboarding@resend.dev",
-            to: input.email,
-            subject: "Verify your email",
-            html: `<p>Click <a href="${process.env.NEXTAUTH_URL ?? "http://localhost:5500"}/verify-email?token=${token}">here</a> to verify your email.</p>`,
-            });
-        } catch (error) {
-            console.error("Failed to send email:", error);
+        // Send Email
+        if (process.env.RESEND_API_KEY) {
+          try {
+              await resend.emails.send({
+              from: "onboarding@resend.dev",
+              to: input.email,
+              subject: "Verify your email",
+              html: `<p>Click <a href="${process.env.NEXTAUTH_URL ?? "http://localhost:5500"}/verify-email?token=${token}">here</a> to verify your email.</p>`,
+              });
+          } catch (error) {
+              console.error("Failed to send email:", error);
+          }
         }
       }
 
