@@ -1,25 +1,68 @@
-# Workflow Status Template
-
-# This tracks progress through BMM methodology Analysis, Planning, and Solutioning phases.
-# Implementation phase is tracked separately in sprint-status.yaml
-
-# STATUS DEFINITIONS:
-# ==================
-# Initial Status (before completion):
-#   - required: Must be completed to progress
-#   - optional: Can be completed but not required
-#   - recommended: Strongly suggested but not required
-#   - conditional: Required only if certain conditions met (e.g., if_has_ui)
-#
-# Completion Status:
-#   - {file-path}: File created/found (e.g., "docs/product-brief.md")
-#   - skipped: Optional/conditional workflow that was skipped
-
-generated: "{{generated}}"
+generated: "2025-12-10"
 project: "ibe160"
-project_type: "AI CV & Job Application Assistant"
-user_description: "The application aims to help students generate customized job applications using their existing CVs,previous applications, key words, and target job descriptions. It improves application quality by suggesting edits to both the CV and the application letter, identifying missing qualifications, and optimizing for Applicant Tracking Systems (ATS)."
-selected_track: "enterprise"
+project_type: "PLANNING"
+selected_track: "BMad Method"
 field_type: "greenfield"
-workflow_path: "{{workflow_path_file}}"
-workflow_status: "{{workflow_items}}"
+workflow_path: "method-greenfield.yaml"
+workflow_status:
+  - phase: "Discovery (Optional)"
+    workflows:
+      - id: "brainstorm-project"
+        status: "completed"
+        file_path: "docs/brainstorming-session-results-2025-12-01.md"
+      - id: "research"
+        status: "completed"
+        file_path: "docs/bmm-research-market-2025-12-03.md, docs/research-report-2025-12-01.md"
+      - id: "product-brief"
+        status: "completed"
+        file_path: "docs/product-brief-ibe160-2025-12-10.md"
+  - phase: "Planning"
+    workflows:
+      - id: "prd"
+        status: "completed"
+        file_path: "docs/prd.md"
+      - id: "validate-prd"
+        status: "completed"
+        file_path: "docs/validation-report-2025-12-12.md"
+      - id: "create-ux-design"
+        status: "completed"
+        file_path: "docs/ux-design-specification.md"
+  - phase: "Solutioning"
+    workflows:
+      - id: "create-architecture"
+        status: "completed"
+        file_path: "docs/architecture.md"
+      - id: "create-epics-and-stories"
+        status: "completed"
+        file_path: "docs/epics.md"
+      - id: "test-design"
+        status: "completed"
+        file_path: "docs/test-design-epic-1.md"
+      - id: "validate-architecture"
+        status: "completed"
+        file_path: "docs/validation-report-2025-12-12-architecture.md"
+      - id: "implementation-readiness"
+        status: "completed"
+        file_path: "docs/implementation-readiness-report-2025-12-10.md"
+  - phase: "Implementation"
+    workflows:
+      - id: "sprint-planning"
+        status: "completed"
+      - id: "project-initialization"
+        status: "completed"
+      - id: "1-1-user-registration-dev"
+        status: "completed"
+      - id: "1-2-user-login-dev"
+        status: "completed"
+      - id: "2-1-cv-upload-dev"
+        status: "completed"
+        file_path: "docs/sprint-artifacts/2-1-cv-upload.md"
+      - id: "2-2-job-description-input-dev"
+        status: "completed"
+        file_path: "docs/sprint-artifacts/2-2-job-description-input.md"
+      - id: "3-1-ai-letter-generation-dev"
+        status: "completed"
+        file_path: "docs/sprint-artifacts/3-1-ai-letter-generation.md"
+      - id: "4-1-download-letter-dev"
+        status: "completed"
+        file_path: "docs/sprint-artifacts/4-1-download-letter.md"

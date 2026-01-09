@@ -1,0 +1,58 @@
+# generated: Friday, December 12, 2025
+# project: ibe160
+# project_key: ibe160
+# tracking_system: file-system
+# story_location: docs/sprint-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic exists in epic file but not contexted
+#   - contexted: Next epic tech context created by *epic-tech-context (required)
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - drafted: Story file created in stories folder by *create-story
+#   - ready-for-dev: Draft approved and story context created by *story-ready
+#   - in-progress: Developer actively working on implementation by *dev-story
+#   - review: Implementation complete, ready for review by *code-review
+#   - done: Story completed by *story-done
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - completed: Retrospective has been done by *retrospective
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epics should be 'contexted' before stories can be 'drafted'
+# - SM typically drafts next story ONLY after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', dev reviews, then Dev moves to 'done'
+
+generated: Friday, December 12, 2025
+project: ibe160
+project_key: ibe160
+tracking_system: file-system
+story_location: docs/sprint-artifacts
+
+development_status:
+  epic-1: contexted
+  1-1-user-registration: review
+  1-2-user-login: review
+  1-3-secure-data-storage: review
+  epic-1-retrospective: optional
+
+  epic-2: backlog
+  2-1-cv-upload: backlog
+  2-2-job-description-input: backlog
+  epic-2-retrospective: optional
+
+  epic-3: backlog
+  3-1-ai-letter-generation: backlog
+  3-2-cv-improvement-suggestions: backlog
+  3-3-qualification-gap-analysis: backlog
+  3-4-approve-reject-suggestions: backlog
+  epic-3-retrospective: optional
+
+  epic-4: backlog
+  4-1-download-generated-letter: backlog
+  epic-4-retrospective: optional
